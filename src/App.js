@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import P5Wrapper from 'react-p5-wrapper';
+import './App.scss';
+import sketch from './sketches/sketch';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <header className='App-header'></header>
+      <P5Wrapper sketch={sketch} />
+      <div className='title'>
+        <h1>hey, hallo</h1>
+      </div>
     </div>
   );
 }

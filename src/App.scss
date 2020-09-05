@@ -1,6 +1,7 @@
 @import 'mixins';
 
 $primaryColor: #d6b8b8;
+$hoverColor: #42051d;
 
 html,
 body {
@@ -8,7 +9,6 @@ body {
   font-size: 100%;
   margin: 0;
   padding: 0;
-  background-color: transparent;
   box-sizing: border-box;
 }
 
@@ -32,6 +32,11 @@ h1 {
 svg {
   position: relative;
   display: block;
+  fill: $primaryColor;
+
+  &:hover {
+    fill: $hoverColor;
+  }
 }
 
 .App {
@@ -47,13 +52,6 @@ svg {
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-.title {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .logo {

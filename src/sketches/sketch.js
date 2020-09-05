@@ -106,10 +106,10 @@ void main(){
 }
 `;
 
-  const ColorPalette = Object.freeze({
-    pink: '#414656',
-    yellow: '#AA4B60',
-    green: '#AA4B60',
+  const ColorPalette = Object({
+    gray: '#414656',
+    red: '#AA4B60',
+    darkred: '#AA4B60',
     blue: '#3F6AAE',
   });
 
@@ -160,9 +160,9 @@ void main(){
     backShader.setUniform('u_positions', positions);
     backShader.setUniform('u_radiuses', radiuses);
     backShader.setUniform('u_time', curTime);
-    backShader.setUniform('u_backcol1', p.color(ColorPalette.pink)._array);
-    backShader.setUniform('u_backcol2', p.color(ColorPalette.yellow)._array);
-    backShader.setUniform('u_col1', p.color(ColorPalette.green)._array);
+    backShader.setUniform('u_backcol1', p.color(ColorPalette.gray)._array);
+    backShader.setUniform('u_backcol2', p.color(ColorPalette.red)._array);
+    backShader.setUniform('u_col1', p.color(ColorPalette.darkred)._array);
     backShader.setUniform('u_col2', p.color(ColorPalette.blue)._array);
 
     p.shader(backShader);

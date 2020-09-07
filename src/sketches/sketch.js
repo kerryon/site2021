@@ -2,8 +2,8 @@ export default function sketch(p) {
   let backShader;
   let curTime = 0.0;
   let drops = [];
-  let metanum = 7;
-  let minsize = 50;
+  let metanum = 8;
+  let minsize = 10;
   let maxsize = 100;
 
   var vert = `
@@ -100,7 +100,7 @@ void main(){
     col = mix(mix(u_backcol1.xyz, u_backcol2.xyz, st.y), val, mixval);
   }
 
-  col = mix(col, vec3(1.0), rand(st * 2.523) * 0.4);
+  col = mix(col, vec3(0.7), rand(st * 2.523) * 0.4);
 
   gl_FragColor = vec4(col, 1);
 }
@@ -126,7 +126,7 @@ void main(){
       let drop = new Drop(
         p.createVector(p.random(p.width), p.height + p.random(p.height)),
         p.random(minsize, maxsize),
-        15.0
+        7.0
       );
       drops.push(drop);
     }

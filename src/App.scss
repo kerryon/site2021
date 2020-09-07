@@ -12,6 +12,10 @@ body {
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 a {
   color: $primaryColor;
   text-decoration: none;
@@ -60,4 +64,75 @@ svg {
   left: 5px;
   width: 50px;
   height: 50px;
+}
+
+.preview {
+  &__1 {
+    background-image: url(img/placeholder.png);
+  }
+  &__2 {
+    background-image: url(img/placeholder.png);
+  }
+  &__3 {
+    background-image: url(img/placeholder.png);
+  }
+}
+
+.scroll-horizontal {
+  height: 500px !important;
+}
+
+.Tilt {
+  position: relative;
+  flex-shrink: 0;
+  width: 500px;
+  height: 400px;
+  margin: 50px 30px;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 27px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  @include breakpoint-small-down {
+    width: 320px;
+    height: 400px;
+  }
+
+  &::before {
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      65deg,
+      rgba(16, 9, 27, 0.8),
+      transparent 50%
+    );
+    position: absolute;
+  }
+}
+
+.Tilt-inner {
+  position: absolute;
+  top: 50%;
+  left: 35px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $primaryColor;
+  transform: translateZ(100px);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 0.3px rgba(0, 0, 0, 0.14),
+    0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 2px;
+    background-color: $primaryColor;
+  }
 }

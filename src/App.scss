@@ -1,3 +1,4 @@
+@import 'fonts';
 @import 'mixins';
 
 $primaryColor: #d6b8b8;
@@ -5,10 +6,13 @@ $hoverColor: #42051d;
 
 html,
 body {
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-family: 'Encode Sans', sans-serif;
   font-size: 100%;
   margin: 0;
   padding: 0;
+}
+
+* {
   box-sizing: border-box;
 }
 
@@ -24,6 +28,10 @@ a {
     color: white;
     text-decoration: underline;
   }
+}
+
+p {
+  margin: 0;
 }
 
 h1 {
@@ -46,9 +54,6 @@ svg {
 .App {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .p5Canvas {
@@ -68,32 +73,55 @@ svg {
 
 .preview {
   &__1 {
-    background-image: url(img/placeholder.png);
+    background-image: url(https://source.unsplash.com/random);
   }
   &__2 {
-    background-image: url(img/placeholder.png);
+    background-image: url(https://source.unsplash.com/random);
   }
   &__3 {
-    background-image: url(img/placeholder.png);
+    background-image: url(https://source.unsplash.com/random);
   }
 }
 
-.scroll-horizontal {
-  height: 500px !important;
+.work-wrapper {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 100px 50px;
+  overflow: hidden;
+}
+
+.work {
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 .Tilt {
-  position: relative;
-  flex-shrink: 0;
-  width: 500px;
-  height: 400px;
-  margin: 50px 30px;
+  display: block;
+  width: 24%;
+  height: 100%;
+  margin: 0 40px;
   background-color: black;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 20px 27px rgba(0, 0, 0, 0.1);
   transform-style: preserve-3d;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.01);
+  transition: box-shadow 0.1s;
   cursor: pointer;
+  border-radius: 2px;
+
+  &:hover {
+    box-shadow: 0 10px 17px rgba(0, 0, 0, 0.2);
+
+    & .Tilt-inner {
+      font-weight: 700;
+    }
+    & .font-weight-regular {
+      font-weight: 300;
+    }
+  }
 
   @include breakpoint-small-down {
     width: 320px;
@@ -109,22 +137,24 @@ svg {
     background-image: linear-gradient(
       65deg,
       rgba(16, 9, 27, 0.8),
-      transparent 50%
+      transparent 60%
     );
     position: absolute;
+    border-radius: 2px;
   }
 }
 
 .Tilt-inner {
   position: absolute;
-  top: 50%;
+  bottom: 10%;
   left: 35px;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 450;
   color: $primaryColor;
   transform: translateZ(100px);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 0.3px rgba(0, 0, 0, 0.14),
     0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
+  transition: font-weight 0.45s ease-out;
 
   &::after {
     content: '';
@@ -134,5 +164,12 @@ svg {
     width: 50px;
     height: 2px;
     background-color: $primaryColor;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 0.3px rgba(0, 0, 0, 0.14),
+      0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
   }
+}
+
+.font-weight-regular {
+  font-weight: 450;
+  transition: font-weight 0.45s ease-out;
 }

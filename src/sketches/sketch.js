@@ -2,9 +2,9 @@ export default function sketch(p) {
   let backShader;
   let curTime = 0.0;
   let drops = [];
-  let metanum = 8;
+  let metanum = 30;
   let minsize = 10;
-  let maxsize = 100;
+  let maxsize = 300;
 
   var vert = `
   precision highp float; 

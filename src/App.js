@@ -23,39 +23,63 @@ function App() {
   return (
     <div className='App'>
       <P5Wrapper sketch={sketch} />
+      <div className='work-wrapper'>
+        <div className='work'>
+          <Tilt
+            className='Tilt preview__1'
+            options={{
+              max: 25,
+              easing: 'cubic-bezier(.03,.98,.52,.99)',
+              scale: 1.1,
+              perspective: 800,
+            }}>
+            <div className='Tilt-inner'>
+              <p>Lorem ipsum Dolor</p>
+              <p className='font-weight-regular'>sit ament</p>
+            </div>
+          </Tilt>
+          <Tilt
+            className='Tilt preview__2'
+            options={{
+              max: 25,
+              easing: 'cubic-bezier(.03,.98,.52,.99)',
+              scale: 1.1,
+              perspective: 800,
+            }}>
+            <div className='Tilt-inner'>
+              <p>Lorem ipsum Dolor</p>
+              <p className='font-weight-regular'>sit ament</p>
+            </div>
+          </Tilt>
+          <Tilt
+            className='Tilt preview__3'
+            options={{
+              max: 25,
+              easing: 'cubic-bezier(.03,.98,.52,.99)',
+              scale: 1.1,
+              perspective: 800,
+            }}>
+            <div className='Tilt-inner'>
+              <p>Lorem ipsum Dolor</p>
+              <p className='font-weight-regular'>sit ament</p>
+            </div>
+          </Tilt>
+          <Tilt
+            className='Tilt preview__3'
+            options={{
+              max: 25,
+              easing: 'cubic-bezier(.03,.98,.52,.99)',
+              scale: 1.1,
+              perspective: 800,
+            }}>
+            <div className='Tilt-inner'>
+              <p>Lorem ipsum Dolor</p>
+              <p className='font-weight-regular'>sit ament</p>
+            </div>
+          </Tilt>
+        </div>
+      </div>
       <LogoSVG />
-      <HorizontalScroll>
-        <Tilt
-          className='Tilt preview__1'
-          options={{
-            max: 25,
-            easing: 'cubic-bezier(.03,.98,.52,.99)',
-            scale: 1.1,
-            perspective: 800,
-          }}>
-          <div className='Tilt-inner'>Pale Blue Dot</div>
-        </Tilt>
-        <Tilt
-          className='Tilt preview__2'
-          options={{
-            max: 25,
-            easing: 'cubic-bezier(.03,.98,.52,.99)',
-            scale: 1.1,
-            perspective: 800,
-          }}>
-          <div className='Tilt-inner'>No Star Sky</div>
-        </Tilt>
-        <Tilt
-          className='Tilt preview__3'
-          options={{
-            max: 25,
-            easing: 'cubic-bezier(.03,.98,.52,.99)',
-            scale: 1.1,
-            perspective: 800,
-          }}>
-          <div className='Tilt-inner'>Dogma</div>
-        </Tilt>
-      </HorizontalScroll>
     </div>
   );
 }

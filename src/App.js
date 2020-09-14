@@ -2,86 +2,57 @@ import React from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 import './App.scss';
 import sketch from './sketches/sketch';
-import { ReactComponent as Logo } from './img/logo.svg';
-import { BrowserRouter, Link } from 'react-router-dom';
-import Tilt from 'react-tilt';
-import HorizontalScroll from 'react-scroll-horizontal';
+import Work from './work';
+import About from './about';
+import LogoSVG from './logo';
+import LottieAnim from './lottie';
 
-function LogoSVG() {
-  return (
-    <BrowserRouter>
-      <div className='logo'>
-        <Link to='#'>
-          <Logo />
-        </Link>
-      </div>
-    </BrowserRouter>
-  );
-}
+// import HorizontalScroll from 'react-scroll-horizontal';
 
-function App() {
-  return (
-    <div className='App'>
-      <P5Wrapper sketch={sketch} />
-      <div className='work-wrapper'>
-        <div className='work'>
-          <Tilt
-            className='Tilt preview__1'
-            options={{
-              max: 25,
-              easing: 'cubic-bezier(.03,.98,.52,.99)',
-              scale: 1.1,
-              perspective: 800,
-            }}>
-            <div className='Tilt-inner'>
-              <p>Lorem ipsum Dolor</p>
-              <p className='font-weight-regular'>sit ament</p>
-            </div>
-          </Tilt>
-          <Tilt
-            className='Tilt preview__2'
-            options={{
-              max: 25,
-              easing: 'cubic-bezier(.03,.98,.52,.99)',
-              scale: 1.1,
-              perspective: 800,
-            }}>
-            <div className='Tilt-inner'>
-              <p>Lorem ipsum Dolor</p>
-              <p className='font-weight-regular'>sit ament</p>
-            </div>
-          </Tilt>
-          <Tilt
-            className='Tilt preview__3'
-            options={{
-              max: 25,
-              easing: 'cubic-bezier(.03,.98,.52,.99)',
-              scale: 1.1,
-              perspective: 800,
-            }}>
-            <div className='Tilt-inner'>
-              <p>Lorem ipsum Dolor</p>
-              <p className='font-weight-regular'>sit ament</p>
-            </div>
-          </Tilt>
-          <Tilt
-            className='Tilt preview__3'
-            options={{
-              max: 25,
-              easing: 'cubic-bezier(.03,.98,.52,.99)',
-              scale: 1.1,
-              perspective: 800,
-            }}>
-            <div className='Tilt-inner'>
-              <p>Lorem ipsum Dolor</p>
-              <p className='font-weight-regular'>sit ament</p>
-            </div>
-          </Tilt>
-        </div>
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      name: 'React',
+      showHideWork: false,
+      showHideAbout: false,
+    };
+    this.hideComponent = this.toggleComponent.bind(this);
+  }
+
+  toggleComponent(name) {
+    switch (name) {
+      case 'showHideWork':
+        this.setState({ showHideWork: !this.state.showHideWork });
+        break;
+      case 'showHideAbout':
+        this.setState({ showHideAbout: !this.state.showHideAbout });
+        break;
+      default:
+      // null;
+    }
+  }
+
+  render() {
+    const { showHideWork, showHideAbout } = this.state;
+    return (
+      <div className='App'>
+        <P5Wrapper sketch={sketch} />
+
+        <button onClick={() => this.toggleComponent('showHideWork')}>
+          Click to hide Work component
+        </button>
+        <button onClick={() => this.toggleComponent('showHideAbout')}>
+          Click to hide About component
+        </button>
+        {showHideWork && <Work />}
+        {showHideAbout && <About />}
+
+        <LogoSVG />
+        <LottieAnim />
       </div>
-      <LogoSVG />
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

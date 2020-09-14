@@ -100,17 +100,21 @@ void main(){
     col = mix(mix(u_backcol1.xyz, u_backcol2.xyz, st.y), val, mixval);
   }
 
-  col = mix(col, vec3(0.7), rand(st * 2.523) * 0.4);
+  col = mix(col, vec3(0.5), rand(st * 2.523) * 0.4);
 
   gl_FragColor = vec4(col, 1);
 }
 `;
 
   const ColorPalette = Object({
-    gray: '#414656',
-    red: '#AA4B60',
-    darkred: '#AA4B60',
-    blue: '#3F6AAE',
+    // gray: '#414656',
+    // red: '#AA4B60',
+    // darkred: '#AA4B60',
+    // blue: '#3F6AAE',
+    gray: '#1a1a1a',
+    red: '#e7e7e7',
+    darkred: '#e7e7e7',
+    blue: '#1a1a1a',
   });
 
   p.setup = function () {

@@ -13,7 +13,9 @@ class App extends React.Component {
     super();
     this.state = {
       name: 'React',
+      setOpacity: '1',
       showHideButtons: true,
+      showHideBack: false,
       showHideWork: false,
       showHideAbout: false,
     };
@@ -23,14 +25,34 @@ class App extends React.Component {
   toggleComponent(name) {
     switch (name) {
       case 'showHideWork':
-        this.setState({ showHideWork: !this.state.showHideWork });
+        this.setState({
+          showHideWork: !this.state.showHideWork,
+          setOpacity: '0',
+        });
+        setTimeout(() => {
+          this.setState({
+            showHideButtons: !this.state.showHideButtons,
+            showHideBack: !this.state.showHideBack,
+          });
+        }, 500);
+        break;
+      case 'showHideAbout':
+        this.setState({
+          showHideAbout: !this.state.showHideAbout,
+          setOpacity: '0',
+        });
         setTimeout(() => {
           this.setState({ showHideButtons: !this.state.showHideButtons });
         }, 500);
         break;
-      case 'showHideAbout':
-        this.setState({ showHideAbout: !this.state.showHideAbout });
-        this.setState({ showHideButtons: !this.state.showHideButtons });
+      case 'showHideBack':
+        this.setState({
+          showHideAbout: false,
+          showHideWork: false,
+          showHideButtons: true,
+          setOpacity: '1',
+          showHideBack: false,
+        });
         break;
       default:
       // null;
@@ -38,13 +60,20 @@ class App extends React.Component {
   }
 
   render() {
-    const { showHideWork, showHideAbout, showHideButtons } = this.state;
+    const {
+      showHideWork,
+      showHideBack,
+      showHideAbout,
+      showHideButtons,
+    } = this.state;
     return (
       <div className='App'>
         <P5Wrapper sketch={sketch} />
 
         {showHideButtons && (
-          <div className='btn-wrapper'>
+          <div
+            className='btn-wrapper'
+            style={{ opacity: this.state.setOpacity }}>
             <button
               className='btn'
               onClick={() => this.toggleComponent('showHideWork')}>
@@ -57,9 +86,13 @@ class App extends React.Component {
             </button>
           </div>
         )}
+        {showHideBack && (
+          <div
+            className='back'
+            onClick={() => this.toggleComponent('showHideBack')}></div>
+        )}
         {showHideWork && <Work />}
         {showHideAbout && <About />}
-
         <LottieAnim />
       </div>
     );

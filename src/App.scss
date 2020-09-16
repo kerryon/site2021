@@ -52,6 +52,7 @@ svg {
 }
 
 .App {
+  position: absolute;
   height: 100vh;
   width: 100vw;
 }
@@ -88,13 +89,16 @@ svg {
   width: 100%;
   padding: 100px 50px;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .work {
   width: 100%;
+  margin: 0 30px;
   opacity: 0;
   animation: fadeIn 0.45s ease-out forwards;
   @include delayed;
+  pointer-events: auto;
 }
 
 @keyframes fadeIn {
@@ -119,8 +123,8 @@ svg {
 
 .btn-wrapper {
   position: absolute;
-  bottom: 5px;
-  left: 5px;
+  top: 5px;
+  right: 5px;
   display: flex;
   flex-direction: row;
   transition: all 0.45s ease-out;
@@ -165,7 +169,6 @@ svg {
 .Tilt {
   display: block;
   height: 100%;
-  margin: 0 30px;
   background-color: black;
   background-size: cover;
   background-position: center;
@@ -179,6 +182,7 @@ svg {
     box-shadow: 0 10px 17px rgba(0, 0, 0, 0.5);
 
     & .Tilt-inner {
+      transform: translateZ(70px);
       font-weight: 700;
     }
     & .font-weight-regular {
@@ -215,15 +219,14 @@ svg {
 
 .Tilt-inner {
   position: absolute;
-  bottom: 10%;
+  bottom: 35px;
   left: 35px;
   font-size: 1.6rem;
   font-weight: 450;
   color: $primaryColor;
-  transform: translateZ(100px);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 0.3px rgba(0, 0, 0, 0.14),
     0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
-  transition: font-weight 0.45s ease-out;
+  transition: font-weight 0.45s ease-out, transform 0.45s ease-out;
 
   &::after {
     content: '';
@@ -241,4 +244,15 @@ svg {
 .font-weight-regular {
   font-weight: 450;
   transition: font-weight 0.45s ease-out;
+}
+
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: $primaryColor;
+  font-size: 22px;
+  font-weight: 400;
+  transition: font-weight 0.25s ease-out;
+  cursor: w-resize;
 }

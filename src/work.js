@@ -26,6 +26,8 @@ class Work extends Component {
               <p className='font-weight-regular'>sit ament</p>
             </div>
           </Tilt>
+        </div>
+        <div className='work'>
           <Tilt
             className='Tilt preview__2'
             options={{
@@ -39,6 +41,8 @@ class Work extends Component {
               <p className='font-weight-regular'>sit ament</p>
             </div>
           </Tilt>
+        </div>
+        <div className='work'>
           <Tilt
             className='Tilt preview__3'
             options={{
@@ -52,6 +56,8 @@ class Work extends Component {
               <p className='font-weight-regular'>sit ament</p>
             </div>
           </Tilt>
+        </div>
+        <div className='work'>
           <Tilt
             className='Tilt preview__3'
             options={{

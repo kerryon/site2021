@@ -67,8 +67,6 @@ svg {
   position: absolute;
   top: 5px;
   left: 5px;
-  width: 50px;
-  height: 50px;
 }
 
 .preview {
@@ -94,17 +92,19 @@ svg {
 
 .work {
   width: 100%;
-  height: 100%;
-  display: flex;
-  animation: fadeIn 0.3s ease-out forwards;
+  opacity: 0;
+  animation: fadeIn 0.45s ease-out forwards;
+  @include delayed;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: scaleY(0);
   }
   to {
     opacity: 1;
+    transform: scaleY(1);
   }
 }
 
@@ -117,9 +117,53 @@ svg {
   }
 }
 
+.btn-wrapper {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  display: flex;
+  flex-direction: row;
+  transition: all 0.45s ease-out;
+}
+
+.btn {
+  font-family: 'Encode Sans';
+  color: $primaryColor;
+  font-size: 22px;
+  line-height: 24px;
+  margin: 0.2em 0.2em;
+  padding: 1em 1em;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  font-weight: 400;
+  transition: font-weight 0.25s ease-out;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  @include on-event {
+    font-weight: 700;
+  }
+
+  &::before {
+    content: '<';
+    font-weight: 700;
+    color: $hoverColor;
+    margin-right: 3px;
+  }
+
+  &::after {
+    content: '>';
+    font-weight: 700;
+    color: $hoverColor;
+    margin-left: 3px;
+  }
+}
+
 .Tilt {
   display: block;
-  width: 25%;
   height: 100%;
   margin: 0 30px;
   background-color: black;

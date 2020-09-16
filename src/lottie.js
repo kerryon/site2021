@@ -1,58 +1,60 @@
 import React, { Component } from 'react';
-import Lottie from 'react-lottie';
-import animationData from './img/lottieAnimation.json';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { Lottie } from '@crello/react-lottie';
+import animationData from './img/lottie.json';
 
 class LottieAnim extends Component {
-  state = { isStopped: false, isPaused: false };
+  constructor() {
+    super();
+
+    this.state = {
+      isStopped: true,
+      speed: 1,
+      direction: -1,
+      playingState: 'stopped',
+    };
+  }
 
   render() {
-    const buttonStyle = {
-      display: 'inline-block',
-      margin: '10px auto',
-      marginRight: '10px',
-      border: 'none',
-      color: 'white',
-      backgroundColor: '#647DFF',
-      borderRadius: '2px',
-      fontSize: '15px',
-    };
+    const { isStopped, playingState, direction, speed } = this.state;
 
-    const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: animationData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
+    const clickHandler = () => {
+      if (isStopped === true) {
+        this.setState({
+          playingState: 'playing',
+          isStopped: false,
+        });
+      } else {
+        this.setState({
+          playingState: 'playing',
+          isStopped: true,
+        });
+      }
+      this.setState({ direction: direction * -1 });
     };
 
     return (
-      <div className='controlled'>
-        <h1>Controlled Lottie</h1>
-        <p>Uses state manipulation to start, stop and pause animations</p>
-        <Lottie
-          options={defaultOptions}
-          height={400}
-          width={400}
-          isStopped={this.state.isStopped}
-          isPaused={this.state.isPaused}
-        />
-        <button
-          style={buttonStyle}
-          onClick={() => this.setState({ isStopped: true })}>
-          Stop
-        </button>
-        <button
-          style={buttonStyle}
-          onClick={() => this.setState({ isStopped: false, isPaused: false })}>
-          Play
-        </button>
-        <button
-          style={buttonStyle}
-          onClick={() => this.setState({ isPaused: !this.state.isPaused })}>
-          Pause
-        </button>
-      </div>
+      <BrowserRouter>
+        <Link to='#' onClick={() => window.location.reload()}>
+          <div
+            className='logo'
+            onMouseEnter={clickHandler}
+            onMouseLeave={clickHandler}>
+            <Lottie
+              playingState={playingState}
+              direction={direction}
+              speed={speed}
+              config={{
+                animationData: animationData,
+                loop: false,
+                autoplay: false,
+              }}
+              height={100}
+              width={250}
+            />
+          </div>
+        </Link>
+      </BrowserRouter>
     );
   }
 }

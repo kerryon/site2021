@@ -26,7 +26,7 @@
 @mixin delayed {
   @for $i from 1 through 4 {
     &:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.2}s;
+      animation-delay: #{$i * 0.15}s;
     }
   }
 }

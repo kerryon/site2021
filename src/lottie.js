@@ -50,7 +50,7 @@ class LottieAnim extends Component {
                 autoplay: false,
               }}
               height={100}
-              width={250}
+              width={100}
             />
           </div>
         </Link>

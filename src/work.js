@@ -59,7 +59,7 @@ class Work extends Component {
         </div>
         <div className='work'>
           <Tilt
-            className='Tilt preview__3'
+            className='Tilt preview__4'
             options={{
               max: 25,
               easing: 'cubic-bezier(.03,.98,.52,.99)',

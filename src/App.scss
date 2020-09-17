@@ -1,19 +1,66 @@
 @import 'fonts';
 @import 'mixins';
 
+// ┌──────────────────────────────────┐
+//  Variables
+// └──────────────────────────────────┘
+
 $primaryColor: #e7e7e7;
 $hoverColor: #1a1a1a;
 
-html,
+// ┌──────────────────────────────────┐
+//  Styles
+// └──────────────────────────────────┘
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  30% {
+    transform: translate(3%, -15%);
+  }
+  50% {
+    transform: translate(12%, 9%);
+  }
+  70% {
+    transform: translate(9%, 4%);
+  }
+  90% {
+    transform: translate(-1%, 7%);
+  }
+}
+
 body {
   font-family: 'Encode Sans', sans-serif;
   font-size: 100%;
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
+  background-color: $hoverColor;
+  cursor: none;
+  overflow: hidden;
+
+  &::after {
+    pointer-events: none;
+    content: '';
+    width: 200vw;
+    height: 200vh;
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    animation: grain 1.5s steps(6) infinite;
+    background-image: url('./img/noise.png');
+  }
 }
 
 * {
   box-sizing: border-box;
+  cursor: none;
 }
 
 *::-webkit-scrollbar {
@@ -25,7 +72,7 @@ a {
   text-decoration: none;
 
   @include on-event {
-    color: white;
+    color: $primaryColor;
     text-decoration: underline;
   }
 }
@@ -80,6 +127,9 @@ svg {
   &__3 {
     background-image: url(https://source.unsplash.com/random);
   }
+  &__4 {
+    background-image: url(https://source.unsplash.com/random);
+  }
 }
 
 .work-wrapper {
@@ -90,34 +140,88 @@ svg {
   padding: 100px 50px;
   overflow: hidden;
   pointer-events: none;
+  transition: opacity 0.45s ease-out;
 }
 
 .work {
   width: 100%;
   margin: 0 30px;
   opacity: 0;
+  pointer-events: auto;
+  transform-origin: left center;
   animation: fadeIn 0.45s ease-out forwards;
   @include delayed;
-  pointer-events: auto;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scaleY(0);
+    transform: rotate3D(0, 1, 0, 60deg);
   }
   to {
     opacity: 1;
-    transform: scaleY(1);
+    transform: rotate3D(0);
   }
 }
 
-@keyframes fadeOut {
+@keyframes slideIn {
   from {
-    opacity: 1;
+    transform: translateX(100px);
+    opacity: 0;
   }
   to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.about {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  a {
     opacity: 0;
+    animation: slideIn 0.45s ease-out forwards;
+    @include delayed;
+  }
+
+  figure {
+    width: 250px;
+    height: 60px;
+    perspective: 500px;
+    margin: 30px 30px;
+  }
+  figure div {
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: 0.25s;
+  }
+  figure:hover div {
+    transform: rotateX(-90deg);
+  }
+  span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    border: 3px solid $primaryColor;
+    line-height: 50px;
+    font-size: 14pt;
+    font-weight: 450;
+    text-align: center;
+  }
+  span:nth-child(1) {
+    color: $primaryColor;
+    transform: translate3d(0, 0, 30px);
+  }
+  span:nth-child(2) {
+    color: $hoverColor;
+    background: $primaryColor;
+    transform: rotateX(90deg) translate3d(0, 0, 30px);
   }
 }
 
@@ -145,7 +249,6 @@ svg {
   transition: font-weight 0.25s ease-out;
   background-color: transparent;
   border: none;
-  cursor: pointer;
 
   @include on-event {
     font-weight: 700;
@@ -175,7 +278,6 @@ svg {
   transform-style: preserve-3d;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.015);
   transition: box-shadow 0.2s;
-  cursor: pointer;
   border-radius: 2px;
 
   &:hover {
@@ -254,5 +356,32 @@ svg {
   font-size: 22px;
   font-weight: 400;
   transition: font-weight 0.25s ease-out;
-  cursor: w-resize;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #fefefe;
+  border-radius: 100%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: all 150ms ease;
+  transition-property: opacity, background-color, transform, mix-blend-mode;
+
+  &--hidden {
+    opacity: 0;
+  }
+
+  &--clicked {
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: $primaryColor;
+  }
+
+  &--link-hovered {
+    transform: translate(-50%, -50%) scale(1.25);
+    background-color: $primaryColor;
+  }
 }

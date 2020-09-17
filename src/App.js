@@ -1,9 +1,10 @@
 import React from 'react';
-import P5Wrapper from 'react-p5-wrapper';
 import './App.scss';
+import P5Wrapper from 'react-p5-wrapper';
 import sketch from './sketches/sketch';
 import Work from './work';
 import About from './about';
+import Cursor from './cursor';
 import LottieAnim from './lottie';
 
 // import HorizontalScroll from 'react-scroll-horizontal';
@@ -42,17 +43,24 @@ class App extends React.Component {
           setOpacity: '0',
         });
         setTimeout(() => {
-          this.setState({ showHideButtons: !this.state.showHideButtons });
+          this.setState({
+            showHideButtons: !this.state.showHideButtons,
+            showHideBack: !this.state.showHideBack,
+          });
         }, 500);
         break;
       case 'showHideBack':
         this.setState({
-          showHideAbout: false,
-          showHideWork: false,
           showHideButtons: true,
-          setOpacity: '1',
           showHideBack: false,
+          setOpacity: !this.state.setOpacity,
         });
+        setTimeout(() => {
+          this.setState({
+            showHideAbout: false,
+            showHideWork: false,
+          });
+        }, 500);
         break;
       default:
       // null;
@@ -77,11 +85,11 @@ class App extends React.Component {
             <button
               className='btn'
               onClick={() => this.toggleComponent('showHideWork')}>
-              projects
+              work
             </button>
             <button
               className='btn'
-              onClick={() => this.toggleComponent('showHideAbout')}>
+              onMouseEnter={() => this.toggleComponent('showHideAbout')}>
               myself
             </button>
           </div>
@@ -94,6 +102,7 @@ class App extends React.Component {
         {showHideWork && <Work />}
         {showHideAbout && <About />}
         <LottieAnim />
+        <Cursor />
       </div>
     );
   }

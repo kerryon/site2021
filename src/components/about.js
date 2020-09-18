@@ -1,14 +1,33 @@
 import React, { Component } from 'react';
+import { Lottie } from '@crello/react-lottie';
+import Writing from '../img/about.json';
 
 class About extends Component {
   constructor() {
     super();
     this.state = {
       name: 'React',
+      isStopped: true,
+      playingState: 'stopped',
     };
   }
 
   render() {
+    const { isStopped, playingState } = this.state;
+
+    const clickHandler = () => {
+      if (isStopped === true) {
+        this.setState({
+          playingState: 'playing',
+          isStopped: !this.state.isStopped,
+        });
+      } else {
+        this.setState({
+          playingState: 'stopped',
+          isStopped: !this.state.isStopped,
+        });
+      }
+    };
     return (
       <div className='about'>
         <a
@@ -18,7 +37,18 @@ class About extends Component {
           <figure>
             <div>
               <span>Mail schreiben</span>
-              <span>moin@kerrybartels.de</span>
+              <span onMouseEnter={clickHandler} onMouseLeave={clickHandler}>
+                <Lottie
+                  playingState={playingState}
+                  config={{
+                    animationData: Writing,
+                    loop: false,
+                    autoplay: false,
+                  }}
+                  height={60}
+                  width={250}
+                />
+              </span>
             </div>
           </figure>
         </a>

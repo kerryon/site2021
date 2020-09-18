@@ -2,10 +2,10 @@ import React from 'react';
 import './App.scss';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from './sketches/sketch';
-import Work from './work';
-import About from './about';
-import Cursor from './cursor';
-import LottieAnim from './lottie';
+import Work from './components/work';
+import About from './components/about';
+import Cursor from './components/cursor';
+import LottieAnim from './components/lottie';
 
 // import HorizontalScroll from 'react-scroll-horizontal';
 
@@ -15,6 +15,7 @@ class App extends React.Component {
     this.state = {
       name: 'React',
       setOpacity: '1',
+      hideText: false,
       showHideButtons: true,
       showHideBack: false,
       showHideWork: false,
@@ -40,20 +41,15 @@ class App extends React.Component {
       case 'showHideAbout':
         this.setState({
           showHideAbout: !this.state.showHideAbout,
-          setOpacity: '0',
+          hideText: !this.state.hideText,
         });
-        setTimeout(() => {
-          this.setState({
-            showHideButtons: !this.state.showHideButtons,
-            showHideBack: !this.state.showHideBack,
-          });
-        }, 500);
         break;
       case 'showHideBack':
         this.setState({
           showHideButtons: true,
           showHideBack: false,
           setOpacity: !this.state.setOpacity,
+          hideText: !this.state.hideText,
         });
         setTimeout(() => {
           this.setState({
@@ -69,6 +65,7 @@ class App extends React.Component {
 
   render() {
     const {
+      hideText,
       showHideWork,
       showHideBack,
       showHideAbout,
@@ -78,6 +75,11 @@ class App extends React.Component {
       <div className='App'>
         <P5Wrapper sketch={sketch} />
 
+        {showHideBack && (
+          <div
+            className='back'
+            onClick={() => this.toggleComponent('showHideBack')}></div>
+        )}
         {showHideButtons && (
           <div
             className='btn-wrapper'
@@ -90,15 +92,11 @@ class App extends React.Component {
             <button
               className='btn'
               onMouseEnter={() => this.toggleComponent('showHideAbout')}>
-              myself
+              {hideText ? 'hide contact' : 'contact'}
             </button>
           </div>
         )}
-        {showHideBack && (
-          <div
-            className='back'
-            onClick={() => this.toggleComponent('showHideBack')}></div>
-        )}
+
         {showHideWork && <Work />}
         {showHideAbout && <About />}
         <LottieAnim />

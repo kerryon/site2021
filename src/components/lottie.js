@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Lottie } from '@crello/react-lottie';
-import animationData from './img/lottie.json';
+import animationData from '../img/lottie.json';
 
 class LottieAnim extends Component {
   constructor() {

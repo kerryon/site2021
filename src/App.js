@@ -49,7 +49,6 @@ class App extends React.Component {
           showHideButtons: true,
           showHideBack: false,
           setOpacity: !this.state.setOpacity,
-          hideText: !this.state.hideText,
         });
         setTimeout(() => {
           this.setState({

@@ -10,7 +10,7 @@ $secondaryColor: #1a1a1a;
 $accentColor: #3d0dee;
 
 // ┌──────────────────────────────────┐
-//  Styles
+//  Keyframes
 // └──────────────────────────────────┘
 
 @keyframes grain {
@@ -68,6 +68,21 @@ $accentColor: #3d0dee;
     opacity: 1;
   }
 }
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0) rotateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+// ┌──────────────────────────────────┐
+//  Styles
+// └──────────────────────────────────┘
 
 body {
   font-family: '4000', sans-serif;
@@ -178,6 +193,15 @@ h1 {
   @include delayed;
 }
 
+.slideOut {
+  animation: slideOut 0.45s ease-out forwards;
+  transform-origin: center right;
+}
+.slideIn {
+  animation: slideIn 0.45s ease-out forwards;
+  @include delayed;
+}
+
 .about {
   width: 100%;
   height: 100%;
@@ -188,8 +212,6 @@ h1 {
 
   & a {
     opacity: 0;
-    animation: slideIn 0.45s ease-out forwards;
-    @include delayed;
   }
 
   & figure {
@@ -258,23 +280,18 @@ h1 {
   background-color: transparent;
   border: none;
   white-space: nowrap;
+  outline: none;
 
   @include on-event {
     font-weight: 700;
   }
 
-  &::before {
-    content: '<';
-    font-weight: 700;
+  &:not(:last-child)::after {
+    content: '|';
+    font-weight: 400;
     color: $accentColor;
-    margin-right: 3px;
-  }
-
-  &::after {
-    content: '/>';
-    font-weight: 700;
-    color: $accentColor;
-    margin-left: 3px;
+    position: absolute;
+    right: -8px;
   }
 }
 

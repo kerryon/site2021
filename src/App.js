@@ -20,6 +20,7 @@ class App extends React.Component {
       showHideBack: false,
       showHideWork: false,
       showHideAbout: false,
+      slideOut: false,
     };
     this.toggleComponent = this.toggleComponent.bind(this);
   }
@@ -40,9 +41,14 @@ class App extends React.Component {
         break;
       case 'showHideAbout':
         this.setState({
-          showHideAbout: !this.state.showHideAbout,
           hideText: !this.state.hideText,
+          slideOut: !this.state.slideOut,
         });
+        setTimeout(() => {
+          this.setState({
+            showHideAbout: !this.state.showHideAbout,
+          });
+        }, 450);
         break;
       case 'showHideBack':
         this.setState({
@@ -86,18 +92,28 @@ class App extends React.Component {
             <button
               className='btn'
               onClick={() => this.toggleComponent('showHideWork')}>
+              myself
+            </button>
+            <button
+              className='btn'
+              onClick={() => this.toggleComponent('showHideWork')}>
               work
             </button>
             <button
               className='btn'
-              onMouseEnter={() => this.toggleComponent('showHideAbout')}>
+              onClick={() => this.toggleComponent('showHideAbout')}>
               {hideText ? 'hide contact' : 'contact'}
             </button>
           </div>
         )}
 
         {showHideWork && <Work />}
-        {showHideAbout && <About />}
+        {showHideAbout && (
+          <About
+            toggleComponent={this.toggleComponent}
+            slideOut={this.state.slideOut}
+          />
+        )}
         <LottieAnim />
         <Cursor />
       </div>

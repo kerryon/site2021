@@ -58,7 +58,6 @@ class App extends React.Component {
         });
         setTimeout(() => {
           this.setState({
-            showHideAbout: false,
             showHideWork: false,
           });
         }, 500);
@@ -92,17 +91,12 @@ class App extends React.Component {
             <button
               className='btn'
               onClick={() => this.toggleComponent('showHideWork')}>
-              myself
-            </button>
-            <button
-              className='btn'
-              onClick={() => this.toggleComponent('showHideWork')}>
-              work
+              works
             </button>
             <button
               className='btn'
               onClick={() => this.toggleComponent('showHideAbout')}>
-              {hideText ? 'hide contact' : 'contact'}
+              {hideText ? 'no myself' : 'myself'}
             </button>
           </div>
         )}

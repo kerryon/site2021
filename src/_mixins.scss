@@ -29,6 +29,14 @@
   }
 }
 
+@mixin delayed_faster {
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
 // ┌──────────────────────────────────┐
 //  Breakpoints
 // └──────────────────────────────────┘

@@ -71,11 +71,11 @@ $accentColor: #3d0dee;
 
 @keyframes slideOut {
   from {
-    transform: translateX(0) rotateY(0);
+    transform: translateX(0);
     opacity: 1;
   }
   to {
-    transform: translateX(100px) rotateY(90deg);
+    transform: translateX(100px);
     opacity: 0;
   }
 }
@@ -194,10 +194,12 @@ h1 {
 }
 
 .slideOut {
+  opacity: 1;
   animation: slideOut 0.45s ease-out forwards;
-  transform-origin: center right;
+  @include delayed_faster;
 }
 .slideIn {
+  opacity: 0;
   animation: slideIn 0.45s ease-out forwards;
   @include delayed;
 }
@@ -210,15 +212,21 @@ h1 {
   justify-content: center;
   align-items: flex-end;
 
-  & a {
-    opacity: 0;
-  }
-
   & figure {
     width: 250px;
     height: 60px;
     perspective: 500px;
     margin: 30px 30px;
+
+    &::after {
+      content: '';
+      width: 30px;
+      height: 3px;
+      background-color: $primaryColor;
+      position: absolute;
+      top: 50%;
+      right: -35px;
+    }
   }
   & figure div {
     height: 100%;
@@ -234,6 +242,7 @@ h1 {
     position: absolute;
     box-sizing: border-box;
     border: 3px solid $primaryColor;
+    border-radius: 2px;
     background-color: $secondaryColor;
     line-height: 55px;
     font-size: 14pt;
@@ -333,11 +342,7 @@ h1 {
     top: 0;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(
-      65deg,
-      rgba(16, 9, 27, 0.8),
-      transparent 70%
-    );
+    background-image: linear-gradient(65deg, $secondaryColor, transparent 70%);
     position: absolute;
     border-radius: 2px;
     opacity: 1;

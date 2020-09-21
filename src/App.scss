@@ -58,6 +58,17 @@ $accentColor: #3d0dee;
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: rotate3D(0, 0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: rotate3D(0, 1, 0, -60deg);
+  }
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(100px);
@@ -186,11 +197,8 @@ h1 {
 .work {
   width: 100%;
   margin: 0 30px;
-  opacity: 0;
   pointer-events: auto;
   transform-origin: left center;
-  animation: fadeIn 0.45s ease-out forwards;
-  @include delayed;
 }
 
 .workDetail {
@@ -202,15 +210,28 @@ h1 {
   background-color: $secondaryColor;
 }
 
-.slideOut {
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 0.45s ease-out forwards;
+  @include delayed;
+}
+
+.fadeOut {
   opacity: 1;
-  animation: slideOut 0.45s ease-out forwards;
+  animation: fadeOut 0.45s ease-out forwards;
   @include delayed_faster;
 }
+
 .slideIn {
   opacity: 0;
   animation: slideIn 0.45s ease-out forwards;
   @include delayed;
+}
+
+.slideOut {
+  opacity: 1;
+  animation: slideOut 0.45s ease-out forwards;
+  @include delayed_faster;
 }
 
 .about {
@@ -234,7 +255,7 @@ h1 {
       background-color: $primaryColor;
       position: absolute;
       top: 50%;
-      right: -35px;
+      right: -38px;
     }
   }
   & figure div {

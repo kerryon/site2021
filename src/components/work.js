@@ -8,6 +8,7 @@ class Work extends Component {
     this.state = {
       name: 'React',
       showHideDetail: false,
+      fadeOut: false,
     };
     this.toggleDetail = this.toggleDetail.bind(this);
   }
@@ -29,7 +30,7 @@ class Work extends Component {
     return (
       <div className='work-wrapper'>
         <div
-          className='work'
+          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}
           onClick={() => this.toggleDetail('showHideDetail')}>
           <Tilt
             className='Tilt preview__1'
@@ -45,7 +46,7 @@ class Work extends Component {
             </div>
           </Tilt>
         </div>
-        <div className='work'>
+        <div className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}>
           <Tilt
             className='Tilt preview__2'
             options={{
@@ -60,7 +61,7 @@ class Work extends Component {
             </div>
           </Tilt>
         </div>
-        <div className='work'>
+        <div className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}>
           <Tilt
             className='Tilt preview__3'
             options={{
@@ -75,7 +76,7 @@ class Work extends Component {
             </div>
           </Tilt>
         </div>
-        <div className='work'>
+        <div className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}>
           <Tilt
             className='Tilt preview__4'
             options={{

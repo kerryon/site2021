@@ -29,15 +29,16 @@ class App extends React.Component {
     switch (name) {
       case 'showHideWork':
         this.setState({
-          showHideWork: !this.state.showHideWork,
           setOpacity: '0',
+          fadeOut: false,
         });
         setTimeout(() => {
           this.setState({
+            showHideWork: !this.state.showHideWork,
             showHideButtons: !this.state.showHideButtons,
             showHideBack: !this.state.showHideBack,
           });
-        }, 500);
+        }, 450);
         break;
       case 'showHideAbout':
         this.setState({
@@ -55,6 +56,7 @@ class App extends React.Component {
           showHideButtons: true,
           showHideBack: false,
           setOpacity: !this.state.setOpacity,
+          fadeOut: true,
         });
         setTimeout(() => {
           this.setState({
@@ -84,6 +86,7 @@ class App extends React.Component {
             className='back'
             onClick={() => this.toggleComponent('showHideBack')}></div>
         )}
+
         {showHideButtons && (
           <div
             className='btn-wrapper'
@@ -101,7 +104,12 @@ class App extends React.Component {
           </div>
         )}
 
-        {showHideWork && <Work />}
+        {showHideWork && (
+          <Work
+            toggleComponent={this.toggleComponent}
+            fadeOut={this.state.fadeOut}
+          />
+        )}
         {showHideAbout && (
           <About
             toggleComponent={this.toggleComponent}

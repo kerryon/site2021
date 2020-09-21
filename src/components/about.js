@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Lottie } from '@crello/react-lottie';
-import Writing from '../img/about.json';
+import Mail from '../img/about.json';
+import Film from '../img/film.json';
 
 class About extends Component {
   constructor() {
@@ -42,7 +43,7 @@ class About extends Component {
                 <Lottie
                   playingState={playingState}
                   config={{
-                    animationData: Writing,
+                    animationData: Mail,
                     loop: false,
                     autoplay: false,
                   }}
@@ -65,7 +66,7 @@ class About extends Component {
                 <Lottie
                   playingState={playingState}
                   config={{
-                    animationData: Writing,
+                    animationData: Mail,
                     loop: false,
                     autoplay: false,
                   }}
@@ -88,7 +89,7 @@ class About extends Component {
                 <Lottie
                   playingState={playingState}
                   config={{
-                    animationData: Writing,
+                    animationData: Film,
                     loop: false,
                     autoplay: false,
                   }}
@@ -111,7 +112,7 @@ class About extends Component {
                 <Lottie
                   playingState={playingState}
                   config={{
-                    animationData: Writing,
+                    animationData: Mail,
                     loop: false,
                     autoplay: false,
                   }}

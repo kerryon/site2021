@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
 import Tilt from 'react-tilt';
+import WorkDetail from './workDetail';
 
 class Work extends Component {
   constructor() {
     super();
     this.state = {
       name: 'React',
+      showHideDetail: false,
     };
+    this.toggleDetail = this.toggleDetail.bind(this);
+  }
+
+  toggleDetail(name) {
+    switch (name) {
+      case 'showHideDetail':
+        this.setState({
+          showHideDetail: !this.state.showHideDetail,
+        });
+        break;
+      default:
+      // null;
+    }
   }
 
   render() {
+    const { showHideDetail } = this.state;
     return (
       <div className='work-wrapper'>
-        <div className='work'>
+        <div
+          className='work'
+          onClick={() => this.toggleDetail('showHideDetail')}>
           <Tilt
             className='Tilt preview__1'
             options={{
@@ -72,6 +90,7 @@ class Work extends Component {
             </div>
           </Tilt>
         </div>
+        {showHideDetail && <WorkDetail />}
       </div>
     );
   }

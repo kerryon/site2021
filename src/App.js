@@ -7,8 +7,6 @@ import About from './components/about';
 import Cursor from './components/cursor';
 import LottieAnim from './components/lottie';
 
-// import HorizontalScroll from 'react-scroll-horizontal';
-
 class App extends React.Component {
   constructor() {
     super();
@@ -62,7 +60,7 @@ class App extends React.Component {
           this.setState({
             showHideWork: false,
           });
-        }, 500);
+        }, 450);
         break;
       default:
       // null;

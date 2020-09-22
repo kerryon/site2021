@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tilt from 'react-tilt';
+// import HorizontalScroll from 'react-scroll-horizontal';
 import WorkDetail from './workDetail';
 
 class Work extends Component {
@@ -8,7 +9,6 @@ class Work extends Component {
     this.state = {
       name: 'React',
       showHideDetail: false,
-      fadeOut: false,
     };
     this.toggleDetail = this.toggleDetail.bind(this);
   }
@@ -16,9 +16,11 @@ class Work extends Component {
   toggleDetail(name) {
     switch (name) {
       case 'showHideDetail':
-        this.setState({
-          showHideDetail: !this.state.showHideDetail,
-        });
+        setTimeout(() => {
+          this.setState({
+            showHideDetail: !this.state.showHideDetail,
+          });
+        }, 450);
         break;
       default:
       // null;
@@ -29,6 +31,7 @@ class Work extends Component {
     const { showHideDetail } = this.state;
     return (
       <div className='work-wrapper'>
+        {/* <HorizontalScroll> */}
         <div
           className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}
           onClick={() => this.toggleDetail('showHideDetail')}>
@@ -91,7 +94,13 @@ class Work extends Component {
             </div>
           </Tilt>
         </div>
-        {showHideDetail && <WorkDetail />}
+        {/* </HorizontalScroll> */}
+        {showHideDetail && (
+          <WorkDetail
+            toggleDetail={this.toggleDetail}
+            showHideDetail={this.state.showHideDetail}
+          />
+        )}
       </div>
     );
   }

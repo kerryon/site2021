@@ -11,6 +11,7 @@ const Cursor = () => {
   const [hidden, setHidden] = useState(false);
 
   const [linkHovered, setLinkHovered] = useState(false);
+  const [backHovered, setBackHovered] = useState(false);
 
   useEffect(() => {
     addEventListeners();
@@ -38,6 +39,7 @@ const Cursor = () => {
 
   const onMouseDown = () => {
     setClicked(true);
+    setBackHovered(false);
   };
 
   const onMouseUp = () => {
@@ -57,9 +59,13 @@ const Cursor = () => {
   };
 
   const handleLinkHoverEvents = () => {
-    document.querySelectorAll('a, button').forEach((el) => {
+    document.querySelectorAll('a, button, .work').forEach((el) => {
       el.addEventListener('mouseover', () => setLinkHovered(true));
       el.addEventListener('mouseout', () => setLinkHovered(false));
+    });
+    document.querySelectorAll('.back').forEach((el) => {
+      el.addEventListener('mouseover', () => setBackHovered(true));
+      el.addEventListener('mouseout', () => setBackHovered(false));
     });
   };
 
@@ -67,6 +73,7 @@ const Cursor = () => {
     'cursor--clicked': clicked,
     'cursor--hidden': hidden,
     'cursor--link-hovered': linkHovered,
+    'cursor--back': backHovered,
   });
   if (typeof navigator !== 'undefined' && isMobile()) return null;
   return (

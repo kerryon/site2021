@@ -496,14 +496,15 @@ h1 {
 
   &--back {
     transform: translate(-50%, -50%);
+    border: none;
 
     &::after {
       content: '';
       position: absolute;
-      top: 4px;
-      right: 4px;
+      top: 0px;
+      right: 0px;
       width: 1px;
-      height: 14px;
+      height: 28px;
       background-color: $primaryColor;
       transform-origin: top right;
       transform: rotateZ(45deg);
@@ -512,10 +513,10 @@ h1 {
     &::before {
       content: '';
       position: absolute;
-      top: 4px;
-      left: 4px;
+      top: 0px;
+      left: 0px;
       width: 1px;
-      height: 14px;
+      height: 28px;
       background-color: $primaryColor;
       transform-origin: top left;
       transform: rotateZ(-45deg);

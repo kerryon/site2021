@@ -33,7 +33,7 @@ class WorkDetail extends Component {
             onClick={() => {
               this.changeState();
             }}>
-            back
+            zurück
           </button>
           <h2>Lorem Ipsum dolor</h2>
           <p>

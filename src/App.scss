@@ -300,7 +300,30 @@ h1 {
 
     p {
       font-size: 1rem;
-      line-height: 1.6rem;
+      line-height: 1.7rem;
+    }
+  }
+
+  &__button {
+    font-family: '4000';
+    color: $secondaryColor;
+    font-size: 22px;
+    position: relative;
+    text-decoration: none;
+    font-weight: 450;
+    transition: font-weight 0.25s ease-out;
+    background-color: transparent;
+    border: none;
+    white-space: nowrap;
+    outline: none;
+
+    @include on-event {
+      font-weight: 700;
+    }
+
+    &::before {
+      content: '\2190';
+      margin-right: 3px;
     }
   }
 }

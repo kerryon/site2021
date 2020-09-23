@@ -1,7 +1,8 @@
 import Raumsonde from '../img/raumsonde.obj';
+import Planet from '../img/planet.obj';
 
 export default function sketch(p) {
-  let model;
+  let model, model2;
   let x = 1;
   let y = 1;
   let easing = 0.007;
@@ -13,6 +14,7 @@ export default function sketch(p) {
 
   p.preload = function () {
     model = p.loadModel(Raumsonde, true);
+    model2 = p.loadModel(Planet, true);
   };
 
   p.setup = function () {
@@ -64,15 +66,26 @@ export default function sketch(p) {
     p.pop();
 
     p.push();
-    p.translate(0, 0, 0);
-    p.model(model);
+    p.translate(0, p.height / 2 + 100, -1000);
+    p.rotate(p.PI / 7);
+    p.rotateY(p.frameCount / 400);
+    p.scale(10);
+    p.ambientMaterial(255);
+    p.model(model2);
     p.pop();
+
+    // p.push();
+    // for (let i = 0; i < 3; i++) {
+    //   p.rotateY(p.frameCount / 100);
+    //   p.translate(0, 0, -1000);
+    //   p.sphere(100);
+    // }
+    // p.pop();
 
     p.translate(x, y, 0);
     p.rotateX(rX);
     p.rotateZ(rY - 0.1);
     p.specularMaterial(255);
-    // p.ambientMaterial(255);
     p.rotateX(p.frameCount / 300);
     p.model(model);
   };

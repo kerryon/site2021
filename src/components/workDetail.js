@@ -20,13 +20,13 @@ class WorkDetail extends Component {
       <div className='workDetail'>
         <div
           className={`workDetail__content ${
-            this.state.fadeOut ? 'fadeOut' : 'fadeIn'
+            this.state.fadeOut ? 'detailOut-left' : 'detailIn-left'
           }`}>
           <img src={Meteor} alt=':(' className='workDetail__content-img' />
         </div>
         <div
           className={`workDetail__description ${
-            this.state.fadeOut ? 'fadeOut' : 'fadeIn'
+            this.state.fadeOut ? 'detailOut-right' : 'detailIn-right'
           }`}>
           <button
             className='workDetail__button'

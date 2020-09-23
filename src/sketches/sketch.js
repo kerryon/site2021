@@ -61,7 +61,11 @@ export default function sketch(p) {
       drops[i].fall();
       drops[i].show();
     }
-    // p.ellipse(0, 0, 500, 500, 32);
+    p.pop();
+
+    p.push();
+    p.translate(0, 0, 0);
+    p.model(model);
     p.pop();
 
     p.translate(x, y, 0);

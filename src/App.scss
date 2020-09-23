@@ -69,6 +69,50 @@ $accentColor: #3d0dee;
   }
 }
 
+@keyframes detailIn-left {
+  from {
+    // opacity: 0;
+    transform: translate3D(-100vw, 0, 0);
+  }
+  to {
+    // opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes detailOut-left {
+  from {
+    // opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+  to {
+    // opacity: 0;
+    transform: translate3D(-100vw, 0, 0);
+  }
+}
+
+@keyframes detailIn-right {
+  from {
+    // opacity: 0;
+    transform: translate3D(0, -100vh, 0);
+  }
+  to {
+    // opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes detailOut-right {
+  from {
+    // opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+  to {
+    // opacity: 0;
+    transform: translate3D(0, 100vh, 0);
+  }
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(100px);
@@ -194,20 +238,30 @@ h1 {
 .work-wrapper {
   position: relative;
   display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   padding: 100px 50px;
   overflow: hidden;
   pointer-events: none;
   transition: opacity 0.45s ease-out;
+
+  @include md {
+    flex-direction: row;
+  }
 }
 
 .work {
   position: relative;
   width: 100%;
-  margin: 0 30px;
+  height: 100%;
+  margin: 30px 0;
   transform-origin: left center;
   pointer-events: auto;
+
+  @include md {
+    margin: 0 30px;
+  }
 }
 
 .workDetail {
@@ -225,7 +279,6 @@ h1 {
     grid-column: 1 / 3;
     background-color: $secondaryColor;
     overflow-y: scroll;
-    // animation: fadeIn 0.45s ease-out;
     transform-origin: center left;
 
     &-img {
@@ -239,7 +292,6 @@ h1 {
     padding: 50px 30px;
     background-color: $primaryColor;
     color: $secondaryColor;
-    // animation: fadeIn 0.45s ease-out;
     transform-origin: center right;
 
     h2 {
@@ -263,6 +315,26 @@ h1 {
   opacity: 1;
   animation: fadeOut 0.25s ease-out forwards;
   @include delayed_faster;
+}
+
+.detailIn-left {
+  // opacity: 0;
+  animation: detailIn-left 0.45s ease-out forwards;
+}
+
+.detailOut-left {
+  // opacity: 1;
+  animation: detailOut-left 0.25s ease-out forwards;
+}
+
+.detailIn-right {
+  // opacity: 0;
+  animation: detailIn-right 0.45s ease-out forwards;
+}
+
+.detailOut-right {
+  // opacity: 1;
+  animation: detailOut-right 0.25s ease-out forwards;
 }
 
 .slideIn {
@@ -290,6 +362,7 @@ h1 {
     height: 66px;
     perspective: 500px;
     margin: 30px 30px;
+    box-shadow: 0px 8px 15px $secondaryColor;
 
     &::after {
       content: '';
@@ -321,8 +394,6 @@ h1 {
     font-size: 14pt;
     font-weight: 450;
     text-align: center;
-    box-shadow: 0px 8px 15px $secondaryColor;
-    // box-shadow: 0px 0px 0px $accentColor;
   }
   & span:nth-child(1) {
     color: $primaryColor;
@@ -404,11 +475,6 @@ h1 {
     &::before {
       opacity: 0.7;
     }
-  }
-
-  @include breakpoint-small-down {
-    width: 320px;
-    height: 400px;
   }
 
   &::before {

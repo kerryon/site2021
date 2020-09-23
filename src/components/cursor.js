@@ -66,6 +66,7 @@ const Cursor = () => {
     document.querySelectorAll('.back').forEach((el) => {
       el.addEventListener('mouseover', () => setBackHovered(true));
       el.addEventListener('mouseout', () => setBackHovered(false));
+      el.addEventListener('mouseover', () => setLinkHovered(false));
     });
   };
 

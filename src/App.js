@@ -5,7 +5,7 @@ import sketch from './sketches/sketch';
 import Work from './components/work';
 import About from './components/about';
 import Cursor from './components/cursor';
-import LottieAnim from './components/lottie';
+import LottieAnim from './components/logo';
 
 class App extends React.Component {
   constructor() {

@@ -46,7 +46,7 @@ class About extends Component {
                   playingState={playingState}
                   config={{
                     animationData: Mail,
-                    loop: false,
+                    loop: true,
                     autoplay: false,
                   }}
                   height={60}
@@ -69,7 +69,7 @@ class About extends Component {
                   playingState={playingState}
                   config={{
                     animationData: Musik,
-                    loop: false,
+                    loop: true,
                     autoplay: false,
                   }}
                   height={60}
@@ -92,7 +92,7 @@ class About extends Component {
                   playingState={playingState}
                   config={{
                     animationData: Film,
-                    loop: false,
+                    loop: true,
                     autoplay: false,
                   }}
                   height={60}
@@ -115,7 +115,7 @@ class About extends Component {
                   playingState={playingState}
                   config={{
                     animationData: Taube,
-                    loop: false,
+                    loop: true,
                     autoplay: false,
                   }}
                   height={60}

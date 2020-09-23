@@ -49,8 +49,8 @@ class LottieAnim extends Component {
                 loop: false,
                 autoplay: false,
               }}
-              height={50}
-              width={150}
+              height={70}
+              width={210}
             />
           </div>
         </Link>

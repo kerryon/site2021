@@ -16,7 +16,6 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-scroll-horizontal": "^1.6.4",
     "react-tilt": "^0.1.4"
   },
   "scripts": {

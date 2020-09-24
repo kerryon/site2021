@@ -68,19 +68,11 @@ export default function sketch(p) {
     p.push();
     p.translate(0, p.height / 2 + 100, -1000);
     p.rotate(p.PI / 7);
-    p.rotateY(p.frameCount / 400);
+    p.rotateY(p.frameCount / 500);
     p.scale(10);
     p.ambientMaterial(255);
     p.model(model2);
     p.pop();
-
-    // p.push();
-    // for (let i = 0; i < 3; i++) {
-    //   p.rotateY(p.frameCount / 100);
-    //   p.translate(0, 0, -1000);
-    //   p.sphere(100);
-    // }
-    // p.pop();
 
     p.translate(x, y, 0);
     p.rotateX(rX);

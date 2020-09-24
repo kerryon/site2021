@@ -67,6 +67,7 @@ const Cursor = () => {
       el.addEventListener('mouseover', () => setBackHovered(true));
       el.addEventListener('mouseout', () => setBackHovered(false));
       el.addEventListener('mouseover', () => setLinkHovered(false));
+      el.addEventListener('mouseover', () => setClicked(false));
     });
   };
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Meteor from '../img/meteor.gif';
+import Data from './data.json';
 
 class WorkDetail extends Component {
   constructor() {
@@ -8,6 +8,7 @@ class WorkDetail extends Component {
     this.state = {
       fadeOut: false,
     };
+    this.changeState = this.changeState.bind(this);
   }
 
   changeState() {
@@ -22,31 +23,32 @@ class WorkDetail extends Component {
           className={`workDetail__content ${
             this.state.fadeOut ? 'detailOut-left' : 'detailIn-left'
           }`}>
-          <img src={Meteor} alt=':(' className='workDetail__content-img' />
+          <img
+            src={require(`../img/${this.props.contentHandler}.png`)}
+            alt=':('
+            className='workDetail__content-img'
+          />
         </div>
         <div
           className={`workDetail__description ${
             this.state.fadeOut ? 'detailOut-right' : 'detailIn-right'
           }`}>
           <button
-            className='workDetail__button'
+            className='workDetail__button workDetail__button--back'
             onClick={() => {
               this.changeState();
             }}>
-            zurück
+            schließen
           </button>
-          <h2>Lorem Ipsum dolor</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          </p>
+          <h2>{Data.contents[this.props.contentHandler].headline}</h2>
+          <p>{Data.contents[this.props.contentHandler].content}</p>
+          <button
+            className='workDetail__button workDetail__button--next'
+            onClick={() => {
+              this.props.nextDetail();
+            }}>
+            weiter
+          </button>
         </div>
       </div>
     );

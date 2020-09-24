@@ -87,17 +87,17 @@ $accentColor: #3d0dee;
   }
   to {
     // opacity: 0;
-    transform: translate3D(-100vw, 0, 0);
+    transform: translate3D(100vw, 0, 0);
   }
 }
 
 @keyframes detailIn-right {
   from {
-    // opacity: 0;
-    transform: translate3D(0, -100vh, 0);
+    opacity: 1;
+    transform: translate3D(-100vw, 0, 0);
   }
   to {
-    // opacity: 1;
+    opacity: 1;
     transform: translate3D(0, 0, 0);
   }
 }
@@ -109,7 +109,7 @@ $accentColor: #3d0dee;
   }
   to {
     // opacity: 0;
-    transform: translate3D(0, 100vh, 0);
+    transform: translate3D(100vw, 0, 0);
   }
 }
 
@@ -222,16 +222,17 @@ h1 {
 
 .preview {
   &__1 {
-    background-image: url(https://source.unsplash.com/random);
+    background-image: url(./img/pbd.jpg);
+    background-position: left !important;
   }
   &__2 {
-    background-image: url(https://source.unsplash.com/random);
+    background-image: url(./img/cbe.jpg);
   }
   &__3 {
-    background-image: url(https://source.unsplash.com/random);
+    background-image: url(./img/nss.jpg);
   }
   &__4 {
-    background-image: url(https://source.unsplash.com/random);
+    background-image: url(./img/syn.jpg);
   }
 }
 
@@ -323,11 +324,13 @@ h1 {
 
     h2 {
       font-size: 2.5rem;
+      margin-bottom: 25px;
     }
 
     p {
-      font-size: 1rem;
-      line-height: 1.7rem;
+      font-size: 1.15rem;
+      line-height: 1.8rem;
+      margin-bottom: 30px;
     }
   }
 
@@ -347,7 +350,7 @@ h1 {
       position: relative;
 
       &::before {
-        content: '\2190';
+        content: '\2196';
         margin-right: 3px;
       }
     }
@@ -356,6 +359,7 @@ h1 {
       position: absolute;
       bottom: 50px;
       right: 30px;
+
       &::after {
         content: '\2192';
         margin-left: 3px;
@@ -386,17 +390,19 @@ h1 {
 
 .detailOut-left {
   // opacity: 1;
-  animation: detailOut-left 0.25s ease-out forwards;
+  animation: detailOut-left 0.3s ease-out forwards;
 }
 
 .detailIn-right {
-  // opacity: 0;
+  opacity: 0;
   animation: detailIn-right 0.45s ease-out forwards;
+  animation-delay: 0.1s;
 }
 
 .detailOut-right {
-  // opacity: 1;
-  animation: detailOut-right 0.25s ease-out forwards;
+  // opacity: 0;
+  animation: detailOut-right 0.3s ease-out forwards;
+  animation-delay: 0.1s;
 }
 
 .slideIn {
@@ -429,7 +435,7 @@ h1 {
     &::after {
       content: '';
       width: 30px;
-      height: 3px;
+      height: 2px;
       background-color: $primaryColor;
       position: absolute;
       top: 50%;
@@ -449,7 +455,7 @@ h1 {
     height: 100%;
     position: absolute;
     box-sizing: border-box;
-    border: 3px solid $primaryColor;
+    border: 2px solid $primaryColor;
     border-radius: 2px;
     background-color: $secondaryColor;
     line-height: 60px;

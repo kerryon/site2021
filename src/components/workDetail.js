@@ -46,8 +46,9 @@ class WorkDetail extends Component {
             className='workDetail__button workDetail__button--next'
             onClick={() => {
               this.props.nextDetail();
+              this.setState({ fadeOut: !this.state.fadeOut });
             }}>
-            weiter
+            {Data.contents[this.props.contentHandler].teaser}
           </button>
         </div>
       </div>

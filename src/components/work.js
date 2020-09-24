@@ -41,7 +41,7 @@ class Work extends Component {
           contentHandler: this.state.contentHandler + 1,
         });
       }
-    }, 450);
+    }, 100);
   }
 
   render() {
@@ -64,8 +64,8 @@ class Work extends Component {
               speed: 800,
             }}>
             <div className='Tilt-inner'>
-              <p>Lorem ipsum Dolor</p>
-              <p className='font-weight-regular'>sit ament</p>
+              <p>Pale Blue Dot</p>
+              <p className='font-weight-regular'>Edutainment App</p>
             </div>
           </Tilt>
         </div>
@@ -85,8 +85,8 @@ class Work extends Component {
               speed: 800,
             }}>
             <div className='Tilt-inner'>
-              <p>Lorem ipsum Dolor</p>
-              <p className='font-weight-regular'>sit ament</p>
+              <p>Cu–be</p>
+              <p className='font-weight-regular'>Creative Coding</p>
             </div>
           </Tilt>
         </div>
@@ -106,8 +106,8 @@ class Work extends Component {
               speed: 800,
             }}>
             <div className='Tilt-inner'>
-              <p>Lorem ipsum Dolor</p>
-              <p className='font-weight-regular'>sit ament</p>
+              <p>No Star Sky</p>
+              <p className='font-weight-regular'>Information Design</p>
             </div>
           </Tilt>
         </div>
@@ -127,8 +127,8 @@ class Work extends Component {
               speed: 800,
             }}>
             <div className='Tilt-inner'>
-              <p>Lorem ipsum Dolor</p>
-              <p className='font-weight-regular'>sit ament</p>
+              <p>Verschiedenes</p>
+              <p className='font-weight-regular'>Dies und Das</p>
             </div>
           </Tilt>
         </div>

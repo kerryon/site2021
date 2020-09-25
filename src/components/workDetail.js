@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Data from './data.json';
+import Vimeo from '@u-wave/react-vimeo';
 
 class WorkDetail extends Component {
   constructor() {
@@ -7,6 +8,7 @@ class WorkDetail extends Component {
 
     this.state = {
       fadeOut: false,
+      setVideo: false,
     };
     this.changeState = this.changeState.bind(this);
   }
@@ -16,17 +18,40 @@ class WorkDetail extends Component {
     this.props.toggleDetail('showHideDetail');
   }
 
+  componentDidMount() {
+    if (Data.contents[this.props.contentHandler].url) {
+      this.setState({
+        setVideo: true,
+      });
+    } else {
+      this.setState({
+        setVideo: false,
+      });
+    }
+  }
+
   render() {
+    const { setVideo } = this.state;
     return (
       <div className='workDetail'>
         <div
           className={`workDetail__content ${
             this.state.fadeOut ? 'detailOut-left' : 'detailIn-left'
           }`}>
+          {setVideo ? (
+            <Vimeo
+              video={Data.contents[this.props.contentHandler].url}
+              className='workDetail__content--player'
+              showPortrait={false}
+              responsive={true}
+            />
+          ) : (
+            ''
+          )}
           <img
             src={require(`../img/${this.props.contentHandler}.png`)}
             alt=':('
-            className='workDetail__content-img'
+            className='workDetail__content--img'
           />
         </div>
         <div

@@ -32,7 +32,7 @@
 @mixin delayed_faster {
   @for $i from 1 through 4 {
     &:nth-child(#{$i}) {
-      animation-delay: #{0.45 - $i * 0.1}s;
+      animation-delay: #{0.3 - $i * 0.1}s;
     }
   }
 }

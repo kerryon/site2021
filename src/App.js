@@ -92,12 +92,12 @@ class App extends React.Component {
             <button
               className='btn'
               onClick={() => this.toggleComponent('showHideWork')}>
-              works
+              Projekte
             </button>
             <button
               className='btn'
               onClick={() => this.toggleComponent('showHideAbout')}>
-              {hideText ? 'no myself' : 'myself'}
+              {hideText ? 'kein Kontakt' : 'Kontakt'}
             </button>
           </div>
         )}

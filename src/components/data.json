@@ -1,25 +1,24 @@
 {
   "contents": [
     {
-      "id": 1,
       "headline": "Pale Blue Dot",
       "content": "Eine Edutainment Application, die eine kosmische Perspektive auf das Leben entfaltet. Ein Planet wird interaktiv von der Entstehung bis zur eventuellen Zerstörung begleitet. Die Aufgabe ist ihn und das Leben auf ihm zu erhalten.",
-      "teaser": "Cu–be"
+      "teaser": "Cu–be",
+      "url": "278823697"
     },
     {
-      "id": 2,
       "headline": "Cu–be",
       "content": "Das Projekt Cu-be macht die räumliche Wahrnehmung von Musik sichtbar und visuell erfahrbar. Die sechs entstandenen Visuals werden durch das Scannen von Triggerbildern mit Hilfe der AR-App Artivive ausgelöst und abgespielt. Die Bewegungen und Grafiken generieren sich aus Parametern der Musik.",
-      "teaser": "No Star Sky"
+      "teaser": "No Star Sky",
+      "url": "441001441"
     },
     {
-      "id": 3,
       "headline": "No Star Sky",
       "content": "Eine Datenvisualisierung von Exoplaneten außerhalb­ ­unseres Sonnensystems. Alle bis dato bekannten Planeten ­werden in eine interaktiven Grafik verpackt. Es wird veranschaulicht, wie ­viele verschiedene Planeten samt ihren ­Besonderheiten im Orbit anderer Sterne dahintreiben.",
-      "teaser": "Verschiedenes"
+      "teaser": "Verschiedenes",
+      "url": "279977944"
     },
     {
-      "id": 4,
       "headline": "Verschiedenes",
       "content": "Eine Auswahl verschiedener Projekte.",
       "teaser": "Pale Blue Dot"

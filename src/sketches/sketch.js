@@ -1,20 +1,23 @@
 import Raumsonde from '../img/raumsonde.obj';
 import Planet from '../img/planet.obj';
+import Comet from '../img/comet.obj';
 
 export default function sketch(p) {
-  let model, model2;
+  let model, model2, model3;
   let x = 1;
   let y = 1;
   let easing = 0.007;
   let drops = [];
+  let orbit = 0;
 
   let pC = p.color('#e7e7e7');
   let sC = p.color('#1a1a1a');
-  // let aC = p.color('#3d0dee');
+  let aC = p.color('#3d0dee');
 
   p.preload = function () {
     model = p.loadModel(Raumsonde, true);
     model2 = p.loadModel(Planet, true);
+    model3 = p.loadModel(Comet, true);
   };
 
   p.setup = function () {
@@ -44,17 +47,16 @@ export default function sketch(p) {
     let rX = (p.mouseX - x) * 0.0005;
     let rY = (p.mouseY - y) * 0.0005;
 
+    if (p.mouseIsPressed) {
+      aC = p.color('#FE606F');
+    } else {
+      aC = p.color('#3d0dee');
+    }
+
     p.ambientLight(sC);
     p.directionalLight(pC, 0, 1, 0.8);
     p.lightFalloff(0.9, 0.01, 0);
-    p.pointLight(
-      61,
-      13,
-      238,
-      p.mouseX - p.width / 2,
-      p.mouseY - p.height / 2,
-      30
-    );
+    p.pointLight(aC, p.mouseX - p.width / 2, p.mouseY - p.height / 2, 30);
 
     p.push();
     p.translate(0, 0, 0);
@@ -66,6 +68,19 @@ export default function sketch(p) {
     p.pop();
 
     p.push();
+    p.ambientMaterial(255);
+    p.translate(0, p.height / 2 + 100, -1000);
+    p.rotateZ(orbit);
+    p.rotateX(orbit * 5);
+    // p.rotateX(orbit);
+    p.translate(0, -1200, 0);
+    p.scale(0.7);
+    p.rotateY(orbit);
+    p.model(model3);
+    orbit += p.radians(1 / 7);
+    p.pop();
+
+    p.push();
     p.translate(0, p.height / 2 + 100, -1000);
     p.rotate(p.PI / 7);
     p.rotateY(p.frameCount / 500);
@@ -74,12 +89,18 @@ export default function sketch(p) {
     p.model(model2);
     p.pop();
 
+    p.push();
     p.translate(x, y, 0);
     p.rotateX(rX);
     p.rotateZ(rY - 0.1);
-    p.specularMaterial(255);
+    p.specularMaterial(pC);
     p.rotateX(p.frameCount / 300);
     p.model(model);
+    p.pop();
+  };
+
+  p.windowResized = function () {
+    p.resizeCanvas(p.windowWidth, p.windowHeight);
   };
 
   function Drop() {
@@ -109,8 +130,4 @@ export default function sketch(p) {
       p.line(this.x, this.y, this.x, this.y + this.len);
     };
   }
-
-  p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
-  };
 }

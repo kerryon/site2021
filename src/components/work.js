@@ -12,6 +12,7 @@ class Work extends Component {
     };
     this.toggleDetail = this.toggleDetail.bind(this);
     this.nextDetail = this.nextDetail.bind(this);
+    this.prevDetail = this.prevDetail.bind(this);
   }
 
   toggleDetail(name) {
@@ -39,6 +40,22 @@ class Work extends Component {
       } else {
         this.setState({
           contentHandler: this.state.contentHandler + 1,
+        });
+      }
+    }, 100);
+  }
+
+  prevDetail() {
+    this.toggleDetail('showHideDetail');
+    setTimeout(() => {
+      this.toggleDetail('showHideDetail');
+      if (this.state.contentHandler <= 0) {
+        this.setState({
+          contentHandler: 3,
+        });
+      } else {
+        this.setState({
+          contentHandler: this.state.contentHandler - 1,
         });
       }
     }, 100);
@@ -136,6 +153,7 @@ class Work extends Component {
           <WorkDetail
             toggleDetail={this.toggleDetail}
             nextDetail={this.nextDetail}
+            prevDetail={this.prevDetail}
             showHideDetail={this.state.showHideDetail}
             contentHandler={this.state.contentHandler}
           />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+// import { BrowserRouter, Link } from 'react-router-dom';
 import { Lottie } from '@crello/react-lottie';
 import animationData from '../img/lottie.json';
 
@@ -34,27 +34,24 @@ class LottieAnim extends Component {
     };
 
     return (
-      <BrowserRouter>
-        <Link to='#' onClick={() => window.location.reload()}>
-          <div
-            className='logo'
-            onMouseEnter={clickHandler}
-            onMouseLeave={clickHandler}>
-            <Lottie
-              playingState={playingState}
-              direction={direction}
-              speed={speed}
-              config={{
-                animationData: animationData,
-                loop: false,
-                autoplay: false,
-              }}
-              height={70}
-              width={210}
-            />
-          </div>
-        </Link>
-      </BrowserRouter>
+      <div
+        className='logo'
+        onMouseEnter={clickHandler}
+        onMouseLeave={clickHandler}
+        onClick={() => this.props.toggleComponent('showHideInfo')}>
+        <Lottie
+          playingState={playingState}
+          direction={direction}
+          speed={speed}
+          config={{
+            animationData: animationData,
+            loop: false,
+            autoplay: false,
+          }}
+          height={70}
+          width={210}
+        />
+      </div>
     );
   }
 }

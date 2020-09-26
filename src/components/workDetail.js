@@ -43,6 +43,7 @@ class WorkDetail extends Component {
               video={Data.contents[this.props.contentHandler].url}
               className='workDetail__content--player'
               showPortrait={false}
+              showByline={false}
               responsive={true}
             />
           ) : (
@@ -67,14 +68,21 @@ class WorkDetail extends Component {
           </button>
           <h2>{Data.contents[this.props.contentHandler].headline}</h2>
           <p>{Data.contents[this.props.contentHandler].content}</p>
-          <button
-            className='workDetail__button workDetail__button--next'
-            onClick={() => {
-              this.props.nextDetail();
-              this.setState({ fadeOut: !this.state.fadeOut });
-            }}>
-            {Data.contents[this.props.contentHandler].teaser}
-          </button>
+
+          <div className='workDetail__button--wrapper'>
+            <button
+              className='workDetail__button workDetail__button--prev'
+              onClick={() => {
+                this.props.prevDetail();
+                this.setState({ fadeOut: !this.state.fadeOut });
+              }}></button>
+            <button
+              className='workDetail__button workDetail__button--next'
+              onClick={() => {
+                this.props.nextDetail();
+                this.setState({ fadeOut: !this.state.fadeOut });
+              }}></button>
+          </div>
         </div>
       </div>
     );

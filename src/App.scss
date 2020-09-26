@@ -160,7 +160,7 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-  cursor: none;
+  cursor: none !important;
 }
 
 *::-webkit-scrollbar {
@@ -190,9 +190,11 @@ h1 {
 
 .App {
   position: absolute;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 
   &::before {
     content: '';
@@ -234,6 +236,33 @@ h1 {
   }
   &__4 {
     background-image: url(./img/syn.jpg);
+  }
+}
+
+.info {
+  position: absolute;
+  top: 15%;
+  left: 5px;
+  color: $primaryColor;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 450;
+  max-width: 100%;
+
+  @include lg {
+    max-width: 60%;
+    font-size: 3rem;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    font-size: 1.5rem;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
   }
 }
 
@@ -280,7 +309,7 @@ h1 {
   display: grid;
   grid-template-columns: none;
   grid-template-rows: 1fr 1fr 1fr;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -315,11 +344,12 @@ h1 {
       height: auto;
     }
     &--player {
-      margin: 100px 0;
+      margin-top: 100px;
     }
   }
 
   &__description {
+    position: relative;
     grid-column: none;
     grid-row: 1;
     padding: 80px 30px;
@@ -352,7 +382,7 @@ h1 {
   &__button {
     font-family: '4000';
     color: $secondaryColor;
-    font-size: 22px;
+    font-size: 1.5rem;
     text-decoration: none;
     font-weight: 450;
     transition: font-weight 0.25s ease-out;
@@ -370,16 +400,28 @@ h1 {
       }
     }
 
-    &--next {
+    &--wrapper {
       position: absolute;
-      bottom: 50px;
       right: 30px;
+      bottom: 50px;
+    }
 
+    &--next {
       &::after {
+        font-size: 3rem;
         content: '\2192';
         margin-left: 3px;
       }
     }
+
+    &--prev {
+      &::after {
+        font-size: 3rem;
+        content: '\2190';
+        margin-left: 3px;
+      }
+    }
+
     @include on-event {
       font-weight: 700;
     }
@@ -691,6 +733,22 @@ h1 {
       background-color: $primaryColor;
       transform-origin: top left;
       transform: rotateZ(-45deg);
+    }
+  }
+}
+
+.Cursor--blinking {
+  opacity: 1;
+  animation: blink 1s linear infinite;
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 }

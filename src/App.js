@@ -4,6 +4,7 @@ import P5Wrapper from 'react-p5-wrapper';
 import sketch from './sketches/sketch';
 import Work from './components/work';
 import About from './components/about';
+import Info from './components/info';
 import Cursor from './components/cursor';
 import LottieAnim from './components/logo';
 
@@ -13,11 +14,11 @@ class App extends React.Component {
     this.state = {
       name: 'React',
       setOpacity: '1',
-      hideText: false,
       showHideButtons: true,
       showHideBack: false,
       showHideWork: false,
       showHideAbout: false,
+      showHideInfo: false,
       slideOut: false,
     };
     this.toggleComponent = this.toggleComponent.bind(this);
@@ -40,7 +41,6 @@ class App extends React.Component {
         break;
       case 'showHideAbout':
         this.setState({
-          hideText: !this.state.hideText,
           slideOut: !this.state.slideOut,
         });
         setTimeout(() => {
@@ -62,6 +62,11 @@ class App extends React.Component {
           });
         }, 450);
         break;
+      case 'showHideInfo':
+        this.setState({
+          showHideInfo: !this.state.showHideInfo,
+        });
+        break;
       default:
       // null;
     }
@@ -69,10 +74,10 @@ class App extends React.Component {
 
   render() {
     const {
-      hideText,
       showHideWork,
-      showHideBack,
       showHideAbout,
+      showHideInfo,
+      showHideBack,
       showHideButtons,
     } = this.state;
     return (
@@ -97,10 +102,12 @@ class App extends React.Component {
             <button
               className='btn'
               onClick={() => this.toggleComponent('showHideAbout')}>
-              {hideText ? 'kein Kontakt' : 'Kontakt'}
+              {showHideAbout ? 'kein Kontakt' : 'Kontakt'}
             </button>
           </div>
         )}
+
+        {showHideInfo && <Info />}
 
         {showHideWork && (
           <Work
@@ -114,7 +121,7 @@ class App extends React.Component {
             slideOut={this.state.slideOut}
           />
         )}
-        <LottieAnim />
+        <LottieAnim toggleComponent={this.toggleComponent} />
         <Cursor />
       </div>
     );

@@ -70,14 +70,13 @@ export default function sketch(p) {
     p.push();
     p.ambientMaterial(255);
     p.translate(0, p.height / 2 + 100, -1000);
-    p.rotateZ(orbit);
-    p.rotateX(orbit * 5);
-    // p.rotateX(orbit);
+    p.rotateZ(-orbit);
+    p.rotateX(-orbit * 8);
     p.translate(0, -1200, 0);
     p.scale(0.7);
-    p.rotateY(orbit);
+    p.rotateY(-orbit * 3);
     p.model(model3);
-    orbit += p.radians(1 / 7);
+    orbit += p.radians(1 / 10);
     p.pop();
 
     p.push();

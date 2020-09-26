@@ -17,10 +17,10 @@ class Info extends Component {
           </Typist>
         </div>
         <a href='https://github.com/kerryon' className='info__link'>
-          Impressum →
+          <span class='info__link--impressum'>i</span> Impressum →
         </a>
         <a
-          href='https://github.com/kerryon'
+          href='https://github.com/kerryon/site'
           className='info__link'
           rel='noopener noreferrer'
           target='_blank'>

@@ -193,8 +193,6 @@ h1 {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  display: flex;
-  align-items: center;
 
   &::before {
     content: '';
@@ -242,11 +240,11 @@ h1 {
 .info {
   position: absolute;
   top: 15%;
-  left: 5px;
+  left: 10px;
   color: $primaryColor;
   font-size: 2rem;
   text-decoration: none;
-  font-weight: 450;
+  font-weight: 400;
   max-width: 100%;
 
   @include lg {
@@ -260,8 +258,13 @@ h1 {
 
   &__link {
     font-size: 1.5rem;
+    animation: fadeIn 1s ease-out;
     &:not(:last-child) {
       margin-right: 30px;
+    }
+
+    &--impressum {
+      font-weight: 900;
     }
   }
 }

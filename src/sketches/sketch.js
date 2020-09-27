@@ -3,12 +3,13 @@ import Planet from '../img/planet.obj';
 import Comet from '../img/comet.obj';
 
 export default function sketch(p) {
-  let model, model2, model3;
+  let model, planet, comet;
   let x = 1;
   let y = 1;
   let easing = 0.007;
   let drops = [];
   let orbit = 0;
+  let z = -1000;
 
   let pC = p.color('#e7e7e7');
   let sC = p.color('#1a1a1a');
@@ -16,8 +17,8 @@ export default function sketch(p) {
 
   p.preload = function () {
     model = p.loadModel(Raumsonde, true);
-    model2 = p.loadModel(Planet, true);
-    model3 = p.loadModel(Comet, true);
+    planet = p.loadModel(Planet, true);
+    comet = p.loadModel(Comet, true);
   };
 
   p.setup = function () {
@@ -49,14 +50,18 @@ export default function sketch(p) {
 
     if (p.mouseIsPressed) {
       aC = p.color('#FE606F');
+      z = z - 5;
     } else {
       aC = p.color('#3d0dee');
+      if (z <= -1000) {
+        z += 10;
+      }
     }
 
     p.ambientLight(sC);
     p.directionalLight(pC, 0, 1, 0.8);
     p.lightFalloff(0.9, 0.01, 0);
-    p.pointLight(aC, p.mouseX - p.width / 2, p.mouseY - p.height / 2, 30);
+    p.pointLight(aC, p.mouseX - p.width / 2, p.mouseY - p.height / 2, 45);
 
     p.push();
     p.translate(0, 0, 0);
@@ -69,23 +74,33 @@ export default function sketch(p) {
 
     p.push();
     p.ambientMaterial(255);
-    p.translate(0, p.height / 2 + 100, -1000);
+    // p.rotate(45);
+    p.translate(0, p.height / 2 + 100, z);
     p.rotateZ(-orbit);
-    p.rotateX(-orbit * 8);
-    p.translate(0, -1200, 0);
+
+    p.push();
+    p.rotateX(orbit);
+    p.translate(0, -1300, 0);
     p.scale(0.7);
-    p.rotateY(-orbit * 3);
-    p.model(model3);
-    orbit += p.radians(1 / 10);
+    p.rotateY(orbit * 4);
+    p.model(comet);
+    p.pop();
+
+    p.translate(0, 1500, 0);
+    p.scale(0.5);
+    p.rotateZ(orbit * -9);
+    p.model(comet);
+    orbit += p.sin(0.01);
+
     p.pop();
 
     p.push();
-    p.translate(0, p.height / 2 + 100, -1000);
+    p.translate(0, p.height / 2 + 100, z);
     p.rotate(p.PI / 7);
     p.rotateY(p.frameCount / 500);
     p.scale(10);
     p.ambientMaterial(255);
-    p.model(model2);
+    p.model(planet);
     p.pop();
 
     p.push();

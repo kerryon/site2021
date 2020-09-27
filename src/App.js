@@ -63,11 +63,11 @@ class App extends React.Component {
         this.setState({
           showHideInfo: !this.state.showHideInfo,
         });
-        setTimeout(() => {
-          this.setState({
-            showHideInfo: !this.state.showHideInfo,
-          });
-        }, 30000);
+        // setTimeout(() => {
+        //   this.setState({
+        //     showHideInfo: !this.state.showHideInfo,
+        //   });
+        // }, 30000);
         break;
       default:
       // null;
@@ -86,7 +86,7 @@ class App extends React.Component {
       <div className='App'>
         <P5Wrapper sketch={sketch} />
 
-        {showHideInfo && <Info />}
+        {showHideInfo && <Info toggleComponent={this.toggleComponent} />}
 
         {showHideBack && (
           <div

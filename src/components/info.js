@@ -10,14 +10,17 @@ class Info extends Component {
   render() {
     return (
       <div className='info'>
-        <div className='info__text'>
+        <div
+          className='info__text'
+          onClick={() => this.props.toggleComponent('showHideInfo')}>
           <Typist>
-            Hey, ich bin Kerry – Grafik-, Web-, und Motiondesigner aus Hannover.
-            Schau dich gerne ein bisschen um.
+            Hey, ich bin Kerry – Grafik-, Web-, und Motiondesigner mit einem
+            Hauch Front-End aus Hannover. Konzeption, Design und Entwicklung
+            benötigen mehr Zeit als ich dachte.
           </Typist>
         </div>
         <a href='https://github.com/kerryon' className='info__link'>
-          <span class='info__link--impressum'>i</span> Impressum →
+          <span className='info__link--impressum'>i</span> Impressum →
         </a>
         <a
           href='https://github.com/kerryon/site'

@@ -169,11 +169,13 @@ body {
 
 a {
   color: $primaryColor;
+  font-weight: 450;
   text-decoration: none;
+  transition: 0.45s ease-out;
 
   @include on-event {
     color: $primaryColor;
-    text-decoration: underline;
+    font-weight: 900;
   }
 }
 
@@ -243,13 +245,17 @@ h1 {
   left: 10px;
   color: $primaryColor;
   font-size: 2rem;
+  line-height: 2.9rem;
   text-decoration: none;
   font-weight: 400;
   max-width: 100%;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 0.3px rgba(0, 0, 0, 0.14),
+    0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
 
   @include lg {
     max-width: 60%;
     font-size: 3rem;
+    line-height: 4rem;
   }
 
   &__text {
@@ -257,7 +263,7 @@ h1 {
   }
 
   &__link {
-    font-size: 1.5rem;
+    font-size: 22px;
     animation: fadeIn 1s ease-out;
     &:not(:last-child) {
       margin-right: 30px;
@@ -753,5 +759,12 @@ h1 {
     100% {
       opacity: 1;
     }
+  }
+
+  &::after {
+    content: '\2190';
+    font-size: 2rem;
+    font-weight: 100;
+    margin-left: 20px;
   }
 }

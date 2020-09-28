@@ -325,12 +325,13 @@ h1 {
   height: 100%;
   pointer-events: auto;
   overflow-y: scroll;
-  z-index: 3;
+  z-index: 6;
 
   @include md {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: none;
     overflow-y: initial;
+    z-index: 3;
   }
 
   &__content {
@@ -353,7 +354,9 @@ h1 {
       height: auto;
     }
     &--player {
-      margin-top: 100px;
+      @include md {
+        margin-top: 80px;
+      }
     }
   }
 
@@ -361,7 +364,7 @@ h1 {
     position: relative;
     grid-column: none;
     grid-row: 1;
-    padding: 80px 30px;
+    padding: 30px 30px;
     background-color: $primaryColor;
     color: $secondaryColor;
     transform-origin: center right;
@@ -371,8 +374,8 @@ h1 {
     @include md {
       grid-column: 3;
       grid-row: none;
-      padding: 50px 30px;
       height: 100vh;
+      padding: 40px 40px;
       width: auto;
     }
 
@@ -384,7 +387,7 @@ h1 {
     p {
       font-size: 1.15rem;
       line-height: 1.8rem;
-      margin-bottom: 30px;
+      margin-bottom: 80px;
     }
   }
 
@@ -399,6 +402,7 @@ h1 {
     border: none;
     white-space: nowrap;
     outline: none;
+    padding: 0;
 
     &--back {
       position: relative;
@@ -411,8 +415,8 @@ h1 {
 
     &--wrapper {
       position: absolute;
-      right: 30px;
-      bottom: 50px;
+      right: 40px;
+      bottom: 40px;
     }
 
     &--next {
@@ -659,8 +663,8 @@ h1 {
 
 .back {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
   color: $primaryColor;
   font-size: 2rem;
   font-weight: 400;
@@ -763,8 +767,7 @@ h1 {
 
   &::after {
     content: '\2190';
-    font-size: 2rem;
     font-weight: 100;
-    margin-left: 20px;
+    margin-left: 10px;
   }
 }

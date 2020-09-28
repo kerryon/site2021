@@ -75,7 +75,7 @@ class Work extends Component {
             className='Tilt preview__1'
             options={{
               max: 25,
-              easing: 'cubic-bezier(.17,.67,.83,.67)',
+              easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
               scale: 1.1,
               perspective: 800,
               speed: 800,
@@ -96,7 +96,7 @@ class Work extends Component {
             className='Tilt preview__2'
             options={{
               max: 25,
-              easing: 'cubic-bezier(.17,.67,.83,.67)',
+              easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
               scale: 1.1,
               perspective: 800,
               speed: 800,
@@ -117,7 +117,7 @@ class Work extends Component {
             className='Tilt preview__3'
             options={{
               max: 25,
-              easing: 'cubic-bezier(.17,.67,.83,.67)',
+              easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
               scale: 1.1,
               perspective: 800,
               speed: 800,
@@ -138,7 +138,7 @@ class Work extends Component {
             className='Tilt preview__4'
             options={{
               max: 25,
-              easing: 'cubic-bezier(.17,.67,.83,.67)',
+              easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
               scale: 1.1,
               perspective: 800,
               speed: 800,

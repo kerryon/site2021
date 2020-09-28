@@ -86,6 +86,7 @@ export default function sketch(p) {
     p.model(comet);
     p.pop();
 
+    // p.rotateX(orbit * 10);
     p.translate(0, 1500, 0);
     p.scale(0.5);
     p.rotateZ(orbit * -9);

@@ -14,13 +14,13 @@ class Info extends Component {
           className='info__text'
           onClick={() => this.props.toggleComponent('showHideInfo')}>
           <Typist>
-            Hey, ich bin Kerry – Grafik-, Web-, und Motiondesigner mit einem
+            Hey. Ich bin Kerry – Grafik-, Web-, und Motiondesigner mit einem
             Hauch Front-End aus Hannover. Konzeption, Design und Entwicklung
-            benötigen mehr Zeit als ich dachte.
+            benötigen mehr Zeit als ich dachte...
           </Typist>
         </div>
         <a href='https://github.com/kerryon' className='info__link'>
-          <span className='info__link--impressum'>i</span> Impressum →
+          <span className='info__link--impressum'>i</span> Impressum ↗
         </a>
         <a
           href='https://github.com/kerryon/site'
@@ -32,7 +32,7 @@ class Info extends Component {
             alt=':('
             style={{ height: '1.1rem' }}
           />{' '}
-          GitHub →
+          GitHub ↗
         </a>
       </div>
     );

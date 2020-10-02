@@ -59,15 +59,21 @@ const Cursor = () => {
   };
 
   const handleLinkHoverEvents = () => {
-    document.querySelectorAll('a, button, .work, .logo').forEach((el) => {
-      el.addEventListener('mouseover', () => setLinkHovered(true));
-      el.addEventListener('mouseout', () => setLinkHovered(false));
-    });
-    document.querySelectorAll('.back').forEach((el) => {
+    document
+      .querySelectorAll('a, button, .work, .highlightCursor')
+      .forEach((el) => {
+        el.addEventListener('mouseover', () => setLinkHovered(true));
+        el.addEventListener('mouseout', () => setLinkHovered(false));
+      });
+    document.querySelectorAll('.back, .popup').forEach((el) => {
       el.addEventListener('mouseover', () => setBackHovered(true));
       el.addEventListener('mouseout', () => setBackHovered(false));
       el.addEventListener('mouseover', () => setLinkHovered(false));
       el.addEventListener('mouseover', () => setClicked(false));
+    });
+    document.querySelectorAll('iframe').forEach((el) => {
+      el.addEventListener('mouseover', () => setHidden(true));
+      el.addEventListener('mouseout', () => setHidden(false));
     });
   };
 

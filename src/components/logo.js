@@ -35,7 +35,7 @@ class LottieAnim extends Component {
 
     return (
       <div
-        className='logo'
+        className='logo highlightCursor'
         onMouseEnter={clickHandler}
         onMouseLeave={clickHandler}
         onClick={() => this.props.toggleComponent('showHideInfo')}>

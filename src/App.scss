@@ -72,7 +72,7 @@ $accentColor: #3d0dee;
 @keyframes detailIn-left {
   from {
     // opacity: 0;
-    transform: translate3D(-100vw, 0, 0);
+    transform: translate3D(0, -100vh, 0);
   }
   to {
     // opacity: 1;
@@ -87,7 +87,7 @@ $accentColor: #3d0dee;
   }
   to {
     // opacity: 0;
-    transform: translate3D(-100vw, 0, 0);
+    transform: translate3D(0, 100vh, 0);
   }
 }
 
@@ -284,7 +284,18 @@ h1 {
 
     &--btn {
       font-weight: 100;
-      animation: blink 2s ease infinite;
+      animation: tick 2s ease infinite;
+      @keyframes tick {
+        0% {
+          font-weight: 100;
+        }
+        50% {
+          font-weight: 600;
+        }
+        100% {
+          font-weight: 100;
+        }
+      }
     }
   }
 
@@ -401,6 +412,7 @@ h1 {
     transform-origin: center right;
     height: auto;
     width: 100vw;
+    box-shadow: inset 0 0 10px $secondaryColor;
 
     @include md {
       grid-column: 3;

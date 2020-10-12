@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?kerrybartels.de [NC]
+    RewriteRule \.(ttf)$ - [NC,F,L]
+</IfModule>

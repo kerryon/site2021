@@ -71,11 +71,11 @@ $accentColor: #3d0dee;
 
 @keyframes detailIn-left {
   from {
-    // opacity: 0;
-    transform: translate3D(0, -100vh, 0);
+    opacity: 1;
+    transform: translate3D(100vw, 0, 0);
   }
   to {
-    // opacity: 1;
+    opacity: 1;
     transform: translate3D(0, 0, 0);
   }
 }
@@ -87,7 +87,7 @@ $accentColor: #3d0dee;
   }
   to {
     // opacity: 0;
-    transform: translate3D(0, 100vh, 0);
+    transform: translate3D(-100vw, 0, 0);
   }
 }
 
@@ -109,7 +109,7 @@ $accentColor: #3d0dee;
   }
   to {
     // opacity: 0;
-    transform: translate3D(100vw, 0, 0);
+    transform: translate3D(-100vw, 0, 0);
   }
 }
 
@@ -284,7 +284,7 @@ h1 {
 
     &--btn {
       font-weight: 100;
-      animation: tick 2s ease infinite;
+      animation: tick 1.5s ease-in-out infinite;
       @keyframes tick {
         0% {
           font-weight: 100;
@@ -412,7 +412,7 @@ h1 {
     transform-origin: center right;
     height: auto;
     width: 100vw;
-    box-shadow: inset 0 0 10px $secondaryColor;
+    box-shadow: inset 5px 0 10px rgba(26, 26, 26, 0.5);
 
     @include md {
       grid-column: 3;
@@ -424,7 +424,8 @@ h1 {
 
     h2 {
       font-size: 2.5rem;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+      margin-top: 25px;
     }
 
     p {
@@ -439,7 +440,7 @@ h1 {
     color: $secondaryColor;
     font-size: 1.5rem;
     text-decoration: none;
-    font-weight: 450;
+    font-weight: 400;
     transition: font-weight 0.25s ease-out;
     background-color: transparent;
     border: none;
@@ -452,14 +453,26 @@ h1 {
 
       &::before {
         content: '\2196';
+        font-size: 2.2rem;
         margin-right: 3px;
       }
     }
 
     &--wrapper {
       position: absolute;
+      width: calc(100% - 80px);
       right: 40px;
       bottom: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    &--line {
+      width: 100%;
+      height: 5px;
+      margin-top: 6px;
+      clip-path: polygon(0 0, 100% 20%, 100% 80%, 0% 100%);
+      background-color: $secondaryColor;
     }
 
     &--next {
@@ -474,7 +487,7 @@ h1 {
       &::after {
         font-size: 3rem;
         content: '\2190';
-        margin-left: 3px;
+        margin-left: 10px;
       }
     }
 
@@ -497,25 +510,25 @@ h1 {
 }
 
 .detailIn-left {
-  // opacity: 0;
+  opacity: 0;
   animation: detailIn-left 0.45s ease-out forwards;
+  animation-delay: 0.1s;
 }
 
 .detailOut-left {
-  // opacity: 1;
+  // opacity: 0;
   animation: detailOut-left 0.3s ease-out forwards;
+  animation-delay: 0.1s;
 }
 
 .detailIn-right {
-  opacity: 0;
+  // opacity: 0;
   animation: detailIn-right 0.45s ease-out forwards;
-  animation-delay: 0.1s;
 }
 
 .detailOut-right {
   // opacity: 0;
   animation: detailOut-right 0.3s ease-out forwards;
-  animation-delay: 0.1s;
 }
 
 .slideIn {
@@ -815,17 +828,31 @@ h1 {
   height: calc(100% - 2rem);
   padding: 20px;
   margin: 1rem;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(26, 26, 26, 0.98);
   color: $primaryColor;
   z-index: 22;
   overflow-y: scroll;
   hyphens: auto;
   border-radius: 2px;
+  border: 2px solid $accentColor;
+  // border-bottom: 2px solid $accentColor;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12), 0 2px 0.3px rgba(0, 0, 0, 0.14),
+    0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
+  animation: rotIn 0.45s ease-out forwards;
+  transform-origin: top;
+  @keyframes rotIn {
+    from {
+      transform: rotate3d(1, 0, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0);
+    }
+  }
 
   @include md {
-    width: calc(100% - 6rem);
-    height: calc(100% - 6rem);
-    margin: 3rem;
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+    margin: 2rem;
     padding: 80px;
   }
 

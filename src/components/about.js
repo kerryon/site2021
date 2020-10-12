@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Lottie } from '@crello/react-lottie';
-import Mail from '../img/about.json';
+import Mail from '../img/mail.json';
 import Musik from '../img/musik.json';
 import Film from '../img/film.json';
 import Taube from '../img/taube.json';

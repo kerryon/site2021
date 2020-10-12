@@ -25,7 +25,7 @@ class Info extends Component {
           <div className='info__text'>
             <Typist avgTypingDelay={50} stdTypingDelay={30}>
               Hey. Ich bin Kerry – Grafik-, Web-, und Motiondesigner mit einem
-              Hauch von Front-End aus Hannover. Schau dich gerne um.
+              Hauch Front-End aus Hannover. Schau dich gerne um.
               <Typist.Backspace count={20} delay={700} />
               <span
                 className='info__text--btn highlightCursor'

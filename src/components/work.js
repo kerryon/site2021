@@ -144,7 +144,7 @@ class Work extends Component {
               speed: 800,
             }}>
             <div className='Tilt-inner'>
-              <p>Verschiedenes</p>
+              <p>Mehr ...</p>
               <p className='font-weight-regular'>Dies und Das</p>
             </div>
           </Tilt>

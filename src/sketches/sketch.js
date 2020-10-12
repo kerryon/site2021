@@ -6,6 +6,7 @@ export default function sketch(p) {
   let model, planet, comet;
   let x = 1;
   let y = 1;
+  let rZ = 0;
   let easing = 0.007;
   let drops = [];
   let orbit = 0;
@@ -51,10 +52,16 @@ export default function sketch(p) {
     if (p.mouseIsPressed) {
       aC = p.color('#FE606F');
       z = z - 5;
+      if (rZ >= -1.5) {
+        rZ -= 0.01;
+      }
     } else {
       aC = p.color('#3d0dee');
       if (z <= -1000) {
         z += 10;
+      }
+      if (rZ <= 0) {
+        rZ += 0.01;
       }
     }
 
@@ -98,7 +105,7 @@ export default function sketch(p) {
     p.push();
     p.translate(0, p.height / 2 + 100, z);
     p.rotate(p.PI / 7);
-    p.rotateY(p.frameCount / 500);
+    p.rotateY(p.frameCount / -500);
     p.scale(10);
     p.ambientMaterial(255);
     p.model(planet);
@@ -108,6 +115,7 @@ export default function sketch(p) {
     p.translate(x, y, 0);
     p.rotateX(rX);
     p.rotateZ(rY - 0.1);
+    p.rotateY(rZ);
     p.specularMaterial(pC);
     p.rotateX(p.frameCount / 300);
     p.model(model);

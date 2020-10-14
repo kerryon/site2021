@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class Popup extends Component {
   render() {
     return (
-      <div className='popup' onClick={this.props.closePopup}>
-        <div className='popup__inner'>
+      <div className='popup__wrapper'>
+          <div className='popup'>
+            <div className='popup__inner'>
           <h1>Impressum</h1>
           <p>
             © Kerry Bartels // Alle Rechte vorbehalten. Diese Arbeiten enthalten
@@ -630,6 +631,8 @@ class Popup extends Component {
              nachlesen.
           </p>
         </div>
+          </div>
+          <div className='popup__close highlightCursor' onClick={this.props.closePopup}></div>
       </div>
     );
   }

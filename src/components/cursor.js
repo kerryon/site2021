@@ -65,7 +65,7 @@ const Cursor = () => {
         el.addEventListener('mouseover', () => setLinkHovered(true));
         el.addEventListener('mouseout', () => setLinkHovered(false));
       });
-    document.querySelectorAll('.back, .popup').forEach((el) => {
+    document.querySelectorAll('.back').forEach((el) => {
       el.addEventListener('mouseover', () => setBackHovered(true));
       el.addEventListener('mouseout', () => setBackHovered(false));
       el.addEventListener('mouseover', () => setLinkHovered(false));

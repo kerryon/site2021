@@ -59,20 +59,16 @@ class WorkDetail extends Component {
           className={`workDetail__description ${
             this.state.fadeOut ? 'detailOut-right' : 'detailIn-right'
           }`}>
-          <div className='workDetail__button--wrapperTop'>
           
           <button
             className='workDetail__button workDetail__button--back'
             onClick={() => {
               this.changeState();
             }}></button>
-            <div className='workDetail__button--line'></div>
-            </div>
           <h2>{Data.contents[this.props.contentHandler].headline}</h2>
           <p>{Data.contents[this.props.contentHandler].content}</p>
 
           <div className='workDetail__button--wrapper'>
-            <div className='workDetail__button--line'></div>
             <button
               className='workDetail__button workDetail__button--prev'
               onClick={() => {

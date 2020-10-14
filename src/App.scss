@@ -459,27 +459,17 @@ h1 {
       }
     }
 
-    &--wrapperTop {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
     &--wrapper {
       position: absolute;
       width: calc(100% - 80px);
       right: 40px;
       bottom: 40px;
       display: flex;
-      align-items: center;
-    }
+      justify-content: space-between;
 
-    &--line {
-      width: 100%;
-      height: 3px;
-      margin-top: 6px;
-      clip-path: polygon(0 0, 100% 30%, 100% 70%, 0% 100%);
-      background-color: $secondaryColor;
+      @include md {
+        justify-content: flex-end;
+      }
     }
 
     &--next {
@@ -494,7 +484,6 @@ h1 {
       &::after {
         font-size: 2.2rem;
         content: '\2190';
-        margin-left: 10px;
       }
     }
 
@@ -842,7 +831,6 @@ h1 {
   hyphens: auto;
   border-radius: 2px;
   border: 2px solid $accentColor;
-  // border-bottom: 2px solid $accentColor;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12), 0 2px 0.3px rgba(0, 0, 0, 0.14),
     0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
   animation: rotIn 0.45s ease-out forwards;
@@ -866,6 +854,23 @@ h1 {
   &__inner {
     display: flex;
     flex-direction: column;
+  }
+
+  &__close {
+    &::after {
+      content: '\2197';
+      position: absolute;
+      color: $primaryColor;
+      font-size: 2.2rem;
+      top: 30px;
+      right: 30px;
+      z-index: 30;
+
+      @include md {
+        top: 50px;
+        right: 50px;
+      }
+    }
   }
 
   h1 {

@@ -307,6 +307,7 @@ h1 {
 
   &__link {
     font-size: 22px;
+    opacity: 50%;
     animation: opaIn 1s ease-out;
     &:not(:last-child) {
       margin-right: 30px;
@@ -315,6 +316,7 @@ h1 {
     @include on-event {
       color: $primaryColor;
       font-weight: 900;
+      opacity: 100%;
     }
 
     &--impressum {
@@ -400,7 +402,12 @@ h1 {
     &--img {
       width: 100%;
       height: auto;
+
+      &:first-of-type {
+        margin-top: 0px;
+      }
     }
+
     &--player {
       @include md {
         margin-top: 80px;
@@ -426,6 +433,15 @@ h1 {
       height: 100vh;
       padding: 40px 40px;
       width: auto;
+    }
+
+    &--link {
+      color: $accentColor;
+      text-decoration: underline;
+
+      &:hover {
+        color: $accentColor;
+      }
     }
 
     h2 {
@@ -659,7 +675,7 @@ h1 {
     box-shadow: 0 10px 17px rgba(0, 0, 0, 0.5);
 
     & .Tilt-inner {
-      transform: translateZ(70px);
+      transform: translateZ(50px);
       font-weight: 700;
     }
     & .font-weight-regular {

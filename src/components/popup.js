@@ -17,9 +17,9 @@ class Popup extends Component {
           <p style={{ marginTop: '30px' }}>Informationspflicht laut § 5 TMG.</p>
           <p>Kerry Bartels</p>
           <p>
-            Weißekreuzstraße, 25
+            Fenskestr., 24
             <br />
-            30161 Hannover, <br />
+            30165 Hannover, <br />
             Deutschland
           </p>
           <p>

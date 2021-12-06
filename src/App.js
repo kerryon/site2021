@@ -109,7 +109,7 @@ class App extends React.Component {
         {showHideWork && (
           <Work
             toggleComponent={this.toggleComponent}
-            fadeOut={this.state.slideOut} //fadeOut?
+            fadeOut={this.state.fadeOut}
           />
         )}
         {showHideAbout && (

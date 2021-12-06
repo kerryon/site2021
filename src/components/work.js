@@ -22,7 +22,7 @@ class Work extends Component {
           this.setState({
             showHideDetail: !this.state.showHideDetail,
           });
-        }, 450);
+        }, 50);
         break;
       default:
       // null;
@@ -42,7 +42,7 @@ class Work extends Component {
           contentHandler: this.state.contentHandler + 1,
         });
       }
-    }, 100);
+    }, 80);
   }
 
   prevDetail() {
@@ -58,7 +58,7 @@ class Work extends Component {
           contentHandler: this.state.contentHandler - 1,
         });
       }
-    }, 100);
+    }, 80);
   }
 
   render() {
@@ -66,7 +66,7 @@ class Work extends Component {
     return (
       <div className='work-wrapper'>
         <div
-          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}
+          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'} highlightCursor`}
           onClick={() => {
             this.setState({ contentHandler: 0 });
             this.toggleDetail('showHideDetail');
@@ -74,20 +74,20 @@ class Work extends Component {
           <Tilt
             className='Tilt preview__1'
             options={{
-              max: 25,
+              max: 20,
               easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
               scale: 1.1,
               perspective: 800,
               speed: 800,
             }}>
             <div className='Tilt-inner'>
-              <p>Pale Blue Dot</p>
-              <p className='font-weight-regular'>Edutainment App</p>
+              <p>Pale Blue</p>
+              <p className='font-weight-regular'>Serious Game</p>
             </div>
           </Tilt>
         </div>
         <div
-          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}
+          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'} highlightCursor`}
           onClick={() => {
             this.setState({ contentHandler: 1 });
             this.toggleDetail('showHideDetail');
@@ -95,7 +95,7 @@ class Work extends Component {
           <Tilt
             className='Tilt preview__2'
             options={{
-              max: 25,
+              max: 20,
               easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
               scale: 1.1,
               perspective: 800,
@@ -108,7 +108,7 @@ class Work extends Component {
           </Tilt>
         </div>
         <div
-          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}
+          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'} highlightCursor`}
           onClick={() => {
             this.setState({ contentHandler: 2 });
             this.toggleDetail('showHideDetail');
@@ -116,7 +116,7 @@ class Work extends Component {
           <Tilt
             className='Tilt preview__3'
             options={{
-              max: 25,
+              max: 20,
               easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
               scale: 1.1,
               perspective: 800,
@@ -129,7 +129,7 @@ class Work extends Component {
           </Tilt>
         </div>
         <div
-          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'}`}
+          className={`work ${this.props.fadeOut ? 'fadeOut' : 'fadeIn'} highlightCursor`}
           onClick={() => {
             this.setState({ contentHandler: 3 });
             this.toggleDetail('showHideDetail');
@@ -137,14 +137,14 @@ class Work extends Component {
           <Tilt
             className='Tilt preview__4'
             options={{
-              max: 25,
+              max: 20,
               easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
               scale: 1.1,
               perspective: 800,
               speed: 800,
             }}>
             <div className='Tilt-inner'>
-              <p>Mehr ...</p>
+              <p>Misc</p>
               <p className='font-weight-regular'>Dies und Das</p>
             </div>
           </Tilt>

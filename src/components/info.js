@@ -24,9 +24,9 @@ class Info extends Component {
         <div className='info'>
           <div className='info__text'>
             <Typist avgTypingDelay={50} stdTypingDelay={30}>
-              Hey. Ich bin Kerry – Grafik-, Web-, und Motiondesigner mit einem
+              Hey. Ich bin Kerry – Web-, UI/UX-, und Motiondesigner mit einem
               Hauch Front-End aus Hannover. Schau dich gerne um.
-              <Typist.Backspace count={20} delay={700} />
+              <Typist.Backspace count={20} delay={600} />
               <span
                 className='info__text--btn highlightCursor'
                 onClick={() => this.props.toggleComponent('showHideInfo')}>
@@ -38,12 +38,12 @@ class Info extends Component {
             <span className='info__link--impressum'>i</span> Impressum ↗
           </button>
           <a
-            href='https://github.com/kerryon/site'
+            href='https://github.com/kerryon'
             className='info__link'
             rel='noopener noreferrer'
             target='_blank'>
             <img
-              src={require('../img/GitHub-Mark-Light-120px.png')}
+              src={require('../img/GitHub-Mark-Light-120px.png').default}
               alt=':('
               style={{ height: '1.1rem' }}
             />{' '}

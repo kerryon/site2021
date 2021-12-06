@@ -50,7 +50,7 @@ class WorkDetail extends Component {
             ''
           )}
           <img
-            src={require(`../img/${this.props.contentHandler}.png`)}
+            src={require(`../img/${this.props.contentHandler}.png`).default}
             alt=':('
             className='workDetail__content--img'
           />

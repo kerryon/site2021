@@ -156,7 +156,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: $secondaryColor;
-  cursor: none;
+  // cursor: none;
   overflow: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -169,7 +169,7 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-  cursor: none !important;
+  // cursor: none !important;
 }
 
 *::-webkit-scrollbar {
@@ -181,6 +181,7 @@ a {
   font-weight: 450;
   text-decoration: none;
   transition: 0.45s ease-out;
+  cursor: cell;
 
   @include on-event {
     color: $primaryColor;
@@ -199,10 +200,16 @@ button {
   white-space: nowrap;
   outline: none;
   transition: 0.45s ease-out;
+  cursor: cell;
+}
+
+.highlightCursor {
+  cursor: cell;
 }
 
 p {
   margin: 0;
+  white-space: pre-wrap;
 }
 
 h1 {
@@ -247,7 +254,6 @@ h1 {
 .preview {
   &__1 {
     background-image: url(./img/pbd.jpg);
-    background-position: left !important;
   }
   &__2 {
     background-image: url(./img/cbe.jpg);
@@ -274,9 +280,9 @@ h1 {
     0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
 
   @include lg {
-    max-width: 60%;
-    font-size: 3rem;
-    line-height: 4rem;
+    max-width: 90%;
+    font-size: 5rem;
+    line-height: 6rem;
   }
 
   &__text {
@@ -450,12 +456,12 @@ h1 {
 
     &--back {
       position: relative;
-      margin-right: 10px;
+      width: 100%;
+      text-align: end;
 
       &::before {
-        content: '\2196';
+        content: '\2197';
         font-size: 2.2rem;
-        margin-right: 3px;
       }
     }
 
@@ -506,36 +512,34 @@ h1 {
 }
 
 .detailIn-left {
-  opacity: 0;
-  animation: detailIn-left 0.45s ease-out forwards;
-  animation-delay: 0.1s;
+  // opacity: 0;
+  animation: detailIn-left 0.2s ease-in-out forwards;
 }
 
 .detailOut-left {
   // opacity: 0;
-  animation: detailOut-left 0.3s ease-out forwards;
-  animation-delay: 0.1s;
+  animation: detailOut-left 0.2s ease-in-out forwards;
 }
 
 .detailIn-right {
   // opacity: 0;
-  animation: detailIn-right 0.45s ease-out forwards;
+  animation: detailIn-right 0.2s ease-in-out forwards;
 }
 
 .detailOut-right {
   // opacity: 0;
-  animation: detailOut-right 0.3s ease-out forwards;
+  animation: detailOut-right 0.2s ease-in-out forwards;
 }
 
 .slideIn {
   opacity: 0;
-  animation: slideIn 0.45s ease-out forwards;
+  animation: slideIn 0.3s ease-out forwards;
   @include delayed;
 }
 
 .slideOut {
   opacity: 1;
-  animation: slideOut 0.4s ease-out forwards;
+  animation: slideOut 0.3s ease-out forwards;
   @include delayed_faster;
 }
 
@@ -722,6 +726,7 @@ h1 {
   font-weight: 400;
   transition: font-weight 0.25s ease-out;
   z-index: 2;
+  cursor: alias;
 
   &::before {
     content: '\2190';
@@ -745,62 +750,62 @@ h1 {
   }
 }
 
-.cursor {
-  width: 20px;
-  height: 20px;
-  border: 1px solid $primaryColor;
-  border-radius: 100%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: all 150ms ease;
-  transition-property: opacity, background-color, transform, mix-blend-mode;
+// .cursor {
+//   width: 20px;
+//   height: 20px;
+//   border: 1px solid $primaryColor;
+//   border-radius: 100%;
+//   position: fixed;
+//   transform: translate(-50%, -50%);
+//   pointer-events: none;
+//   z-index: 9999;
+//   mix-blend-mode: difference;
+//   transition: all 150ms ease;
+//   transition-property: opacity, background-color, transform, mix-blend-mode;
 
-  &--hidden {
-    opacity: 0;
-  }
+//   &--hidden {
+//     opacity: 0;
+//   }
 
-  &--clicked {
-    transform: translate(-50%, -50%) scale(0.9);
-    background-color: $primaryColor;
-  }
+//   &--clicked {
+//     transform: translate(-50%, -50%) scale(0.9);
+//     background-color: $primaryColor;
+//   }
 
-  &--link-hovered {
-    transform: translate(-50%, -50%) scale(1.25);
-    background-color: $primaryColor;
-  }
+//   &--link-hovered {
+//     transform: translate(-50%, -50%) scale(1.25);
+//     background-color: $primaryColor;
+//   }
 
-  &--back {
-    transform: translate(-50%, -50%);
-    border: none;
+//   &--back {
+//     transform: translate(-50%, -50%);
+//     border: none;
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      width: 1px;
-      height: 28px;
-      background-color: $primaryColor;
-      transform-origin: top right;
-      transform: rotateZ(45deg);
-    }
+//     &::after {
+//       content: '';
+//       position: absolute;
+//       top: 0px;
+//       right: 0px;
+//       width: 1px;
+//       height: 28px;
+//       background-color: $primaryColor;
+//       transform-origin: top right;
+//       transform: rotateZ(45deg);
+//     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 1px;
-      height: 28px;
-      background-color: $primaryColor;
-      transform-origin: top left;
-      transform: rotateZ(-45deg);
-    }
-  }
-}
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       top: 0px;
+//       left: 0px;
+//       width: 1px;
+//       height: 28px;
+//       background-color: $primaryColor;
+//       transform-origin: top left;
+//       transform: rotateZ(-45deg);
+//     }
+//   }
+// }
 
 .Cursor--blinking {
   opacity: 1;

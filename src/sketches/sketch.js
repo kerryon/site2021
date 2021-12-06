@@ -126,31 +126,33 @@ export default function sketch(p) {
     p.resizeCanvas(p.windowWidth, p.windowHeight);
   };
 
-  function Drop() {
-    this.x = p.random(-p.width / 2, p.width / 2);
-    this.y = p.random(-p.height, -p.height / 2);
-    this.z = p.random(0, 20);
-    this.len = p.map(this.z, 0, 20, 20, 100);
-    this.yspeed = p.map(this.z, 0, 20, 1, 20);
+  class Drop {
+    constructor() {
+      this.x = p.random(-p.width / 2, p.width / 2);
+      this.y = p.random(-p.height, -p.height / 2);
+      this.z = p.random(0, 20);
+      this.len = p.map(this.z, 0, 20, 20, 100);
+      this.yspeed = p.map(this.z, 0, 20, 1, 20);
 
-    this.fall = function () {
-      this.y = this.y + this.yspeed;
-      var grav = p.map(this.z, 0, 20, 0.2, 0.5);
-      this.yspeed = this.yspeed + grav;
+      this.fall = function () {
+        this.y = this.y + this.yspeed;
+        var grav = p.map(this.z, 0, 20, 0.2, 0.5);
+        this.yspeed = this.yspeed + grav;
 
-      if (this.y > p.height) {
-        this.x = p.random(-p.width / 2, p.width / 2);
-        this.y = p.random(-p.height * 1.5, -p.height);
-        this.yspeed = p.map(this.z, 0, 20, 4, 10);
-      }
-    };
+        if (this.y > p.height) {
+          this.x = p.random(-p.width / 2, p.width / 2);
+          this.y = p.random(-p.height * 1.5, -p.height);
+          this.yspeed = p.map(this.z, 0, 20, 4, 10);
+        }
+      };
 
-    this.show = function () {
-      var sw = p.map(this.z, 0, 20, 1, 2);
-      p.noFill();
-      p.stroke(pC);
-      p.strokeWeight(sw);
-      p.line(this.x, this.y, this.x, this.y + this.len);
-    };
+      this.show = function () {
+        var sw = p.map(this.z, 0, 20, 1, 2);
+        p.noFill();
+        p.stroke(pC);
+        p.strokeWeight(sw);
+        p.line(this.x, this.y, this.x, this.y + this.len);
+      };
+    }
   }
 }

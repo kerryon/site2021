@@ -1,8 +1,8 @@
 {
   "contents": [
     {
-      "headline": "Pale Blue Dot",
-      "content": "Eine Edutainment Application, die eine kosmische Perspektive auf das Leben beisteuert. Ein Planet wird interaktiv von der Entstehung bis zur eventuellen Zerstörung begleitet. Die Aufgabe ist ihn und das Leben auf ihm zu erhalten. // Ausgezeichent durch: Annual Multimedia 2019 und DDC University Award.",
+      "headline": "Pale Blue (Pale Blue Dot)",
+      "content": "Im Rahmen meiner Master-Thesis habe ich ein Konzept für ein mobiles digitales Serious Game für den Einsatz in Bildungsstätten entwickelt. Mit der Anwendung können Schüler:innen und Lernende innerhalb und außerhalb des Geographie-Unterrichts die Dimensionen der Wasser-Thematik entdecken und verstehen. Ein Planet muss nach dem 'Tamagotchi'-Prinzip am Leben erhalten werden und bedarf nachhaltiger Eingriffe der Schüler:innen. Es eignet sich als Exkurs, Projekt oder auch Unterrichtsgegenstand in schulischem sowie privatem Umfeld. Lernende können ihren Lernprozess eigenständig steuern, während Lehrende eine moderierende Rolle einnehmen, unterstützen und vom Spiel unterstützt werden. \n\n Mehr: https://paleblue.webflow.io/ \n Thesis: https://kerrybartels.de/Bartels_Kerry_Thesis.pdf",
       "url": "278823697"
     },
     {
@@ -12,12 +12,12 @@
     },
     {
       "headline": "No Star Sky",
-      "content": "Eine Datenvisualisierung von Exoplaneten außerhalb­ ­unseres Sonnensystems. Alle bis dato bekannten Planeten ­werden in eine interaktiven Grafik verpackt. Es wird veranschaulicht, wie ­viele verschiedene Planeten samt ihren ­Besonderheiten im Orbit anderer Sterne dahintreiben.",
+      "content": "Eine Datenvisualisierung von Exoplaneten außerhalb­ ­unseres Sonnensystems. Alle bis dato bekannten Planeten ­werden in eine interaktiven Grafik verpackt. Es wird veranschaulicht, wie ­viele verschiedene Planeten samt ihrer ­Besonderheiten im Orbit anderer Sterne umhertreiben.",
       "url": "279977944"
     },
     {
-      "headline": "Verschiedene Projekte",
-      "content": "Eine Auswahl verschiedener Projekte. Von Editorial Designs über Renderings bis zu kleinen Anwendungen aus Unity.",
+      "headline": "Misc",
+      "content": "Eine Auswahl verschiedener Projekte. Von Editorial Designs über Renderings bis zu kleinen Anwendungen.",
       "url": "467072117"
     }
   ]

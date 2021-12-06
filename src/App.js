@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
-import P5Wrapper from 'react-p5-wrapper';
+import { ReactP5Wrapper } from "react-p5-wrapper";
 import sketch from './sketches/sketch';
 import Work from './components/work';
 import About from './components/about';
 import Info from './components/info';
-import Cursor from './components/cursor';
+// import Cursor from './components/cursor';
 import LottieAnim from './components/logo';
 
 class App extends React.Component {
@@ -79,7 +79,7 @@ class App extends React.Component {
     } = this.state;
     return (
       <div className='App'>
-        <P5Wrapper sketch={sketch} />
+        <ReactP5Wrapper sketch={sketch} />
 
         {showHideInfo && <Info toggleComponent={this.toggleComponent} />}
 
@@ -109,7 +109,7 @@ class App extends React.Component {
         {showHideWork && (
           <Work
             toggleComponent={this.toggleComponent}
-            fadeOut={this.state.fadeOut}
+            fadeOut={this.state.slideOut} //fadeOut?
           />
         )}
         {showHideAbout && (
@@ -119,7 +119,7 @@ class App extends React.Component {
           />
         )}
         <LottieAnim toggleComponent={this.toggleComponent} />
-        <Cursor />
+        {/* <Cursor /> */}
       </div>
     );
   }

@@ -16,6 +16,11 @@ export default function sketch(p) {
   let sC = p.color('#1a1a1a');
   let aC = p.color('#3d0dee');
 
+  let laC = p.color('#FE606F');
+  let laC2 = p.color('#3d0dee');
+
+  p.disableFriendlyErrors = true;
+
   p.preload = function () {
     model = p.loadModel(Raumsonde, true);
     planet = p.loadModel(Planet, true);
@@ -24,9 +29,9 @@ export default function sketch(p) {
 
   p.setup = function () {
     p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
-    p.smooth();
+    // p.smooth();
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 4; i++) {
       drops[i] = new Drop();
     }
   };
@@ -37,8 +42,8 @@ export default function sketch(p) {
     p.fill(pC);
     p.background(sC);
 
-    let targetX = p.map(p.mouseX, 0, p.width, -200, 200);
-    let targetY = p.map(p.mouseY, 0, p.height, -200, 200);
+    let targetX = p.map(p.mouseX, 0, p.width, -250, 250);
+    let targetY = p.map(p.mouseY, 0, p.height, -100, 200);
 
     let dx = targetX - x;
     x += dx * easing;
@@ -50,13 +55,13 @@ export default function sketch(p) {
     let rY = (p.mouseY - y) * 0.0005;
 
     if (p.mouseIsPressed) {
-      aC = p.color('#FE606F');
+      aC = laC;
       z = z - 5;
       if (rZ >= -1.5) {
         rZ -= 0.01;
       }
     } else {
-      aC = p.color('#3d0dee');
+      aC = laC2;
       if (z <= -1000) {
         z += 10;
       }
@@ -112,7 +117,7 @@ export default function sketch(p) {
     p.pop();
 
     p.push();
-    p.translate(x, y, 0);
+      p.translate(x, y, 0);
     p.rotateX(rX);
     p.rotateZ(rY - 0.1);
     p.rotateY(rZ);
@@ -123,7 +128,7 @@ export default function sketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    p.resizeCanvas(p.windowWidth, p.windowHeight, false);
   };
 
   class Drop {

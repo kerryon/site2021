@@ -180,13 +180,17 @@ a {
   color: $primaryColor;
   font-weight: 450;
   text-decoration: none;
-  transition: 0.45s ease-out;
+  transition: 0.3s ease-out;
   cursor: cell;
 
   @include on-event {
     color: $primaryColor;
     font-weight: 900;
   }
+}
+
+video {
+  display: block;
 }
 
 button {
@@ -199,7 +203,7 @@ button {
   border: none;
   white-space: nowrap;
   outline: none;
-  transition: 0.45s ease-out;
+  transition: 0.3s ease-out;
   cursor: cell;
 }
 
@@ -246,8 +250,8 @@ h1 {
 
 .logo {
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 10px;
+  left: 10px;
   z-index: 5;
 }
 
@@ -270,6 +274,7 @@ h1 {
   position: absolute;
   top: 15%;
   left: 10px;
+  bottom: 0;
   color: $primaryColor;
   font-size: 2rem;
   line-height: 2.9rem;
@@ -306,9 +311,10 @@ h1 {
   }
 
   &__link {
-    font-size: 22px;
+    font-size: 18px;
     opacity: 0.5;
     animation: opaIn 1s ease-out;
+    align-items: end;
     &:not(:last-child) {
       margin-right: 30px;
     }
@@ -320,7 +326,14 @@ h1 {
     }
 
     &--impressum {
-      font-weight: 900;
+      font-weight: 700;
+    }
+
+    &--wrapper {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
     }
   }
 }
@@ -400,8 +413,10 @@ h1 {
     }
 
     &--img {
+      display: block;
       width: 100%;
       height: auto;
+      margin: 0;
 
       &:first-of-type {
         margin-top: 0px;
@@ -446,13 +461,20 @@ h1 {
     h2 {
       font-size: 2.5rem;
       margin-bottom: 20px;
-      margin-top: 25px;
+      margin-top: 0;
     }
 
     p {
       font-size: 1.15rem;
       line-height: 1.8rem;
       margin-bottom: 80px;
+    }
+
+    &--data {
+      font-size: 0.9rem !important;
+      margin-bottom: 0 !important;
+      text-transform: uppercase;
+      color: #1a1a1a60;
     }
   }
 
@@ -528,33 +550,33 @@ h1 {
 
 .detailIn-left {
   // opacity: 0;
-  animation: detailIn-left 0.2s ease-in-out forwards;
+  animation: detailIn-left 0.2s ease-out forwards;
 }
 
 .detailOut-left {
   // opacity: 0;
-  animation: detailOut-left 0.2s ease-in-out forwards;
+  animation: detailOut-left 0.2s ease-out forwards;
 }
 
 .detailIn-right {
   // opacity: 0;
-  animation: detailIn-right 0.2s ease-in-out forwards;
+  animation: detailIn-right 0.2s ease-out forwards;
 }
 
 .detailOut-right {
   // opacity: 0;
-  animation: detailOut-right 0.2s ease-in-out forwards;
+  animation: detailOut-right 0.2s ease-out forwards;
 }
 
 .slideIn {
   opacity: 0;
-  animation: slideIn 0.3s ease-out forwards;
+  animation: slideIn 0.2s ease-out forwards;
   @include delayed;
 }
 
 .slideOut {
   opacity: 1;
-  animation: slideOut 0.3s ease-out forwards;
+  animation: slideOut 0.2s ease-out forwards;
   @include delayed_faster;
 }
 
@@ -625,7 +647,17 @@ h1 {
   right: 5px;
   display: flex;
   flex-direction: row;
-  transition: all 0.45s ease-out;
+  transition: all 0.2s ease-out;
+
+  @include md {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.2s ease-out;
+    top: 5px;
+    right: 5px;
+    bottom: initial;
+  }
 }
 
 .btn {
@@ -640,7 +672,7 @@ h1 {
   text-decoration: none;
   width: 100%;
   font-weight: 400;
-  transition: font-weight 0.25s ease-out;
+  transition: font-weight 0.2s ease-out;
   background-color: transparent;
   border: none;
   white-space: nowrap;
@@ -696,7 +728,7 @@ h1 {
     position: absolute;
     border-radius: 2px;
     opacity: 1;
-    transition: opacity 0.45s ease-out;
+    transition: opacity 0.3s ease-out;
   }
 }
 
@@ -729,7 +761,7 @@ h1 {
   font-size: 1.4rem;
   font-weight: 450;
   margin-top: 4px;
-  transition: font-weight 0.45s ease-out;
+  transition: font-weight 0.3s ease-out;
 }
 
 .back {
@@ -853,7 +885,7 @@ h1 {
   border: 2px solid $accentColor;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12), 0 2px 0.3px rgba(0, 0, 0, 0.14),
     0 0.3px 4px rgba(0, 0, 0, 0.12), 0 -0.2px 1px rgba(0, 0, 0, 0.1);
-  animation: rotIn 0.45s ease-out forwards;
+  animation: rotIn 0.3s ease-out forwards;
   transform-origin: top;
   @keyframes rotIn {
     from {

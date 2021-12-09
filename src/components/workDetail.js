@@ -15,7 +15,9 @@ class WorkDetail extends Component {
 
   changeState() {
     this.setState({ fadeOut: !this.state.fadeOut });
-    this.props.toggleDetail('showHideDetail');
+    setTimeout(() => {
+        this.props.toggleDetail('showHideDetail');
+    }, 200);
   }
 
   componentDidMount() {
@@ -32,8 +34,9 @@ class WorkDetail extends Component {
 
   Video(props) {
     const isTrue = props.isTrue;
+    let contentHandler = props.contenHandler;
     if (isTrue) {
-      return <video src={require("../img/c_showcase.mp4").default} type="video/mp4" width="100%" height="auto" autoPlay loop></video>;
+      return <video src={require(`../img/case_${contentHandler}.mp4`).default} type="video/mp4" width="100%" height="auto" autoPlay loop muted></video>;
     } else {
       return null;
     }
@@ -64,7 +67,7 @@ class WorkDetail extends Component {
             alt=':('
             className='workDetail__content--img'
           />
-          <this.Video isTrue={Data.contents[this.props.contentHandler].hasVideo}/>
+          <this.Video isTrue={Data.contents[this.props.contentHandler].hasVideo} contenHandler={this.props.contentHandler}/>
           <img
             src={require(`../img/${this.props.contentHandler}_1.png`).default}
             alt=':('
@@ -86,10 +89,11 @@ class WorkDetail extends Component {
             onClick={() => {
               this.changeState();
             }}></button>
+          <p className='workDetail__description--data'>{Data.contents[this.props.contentHandler].data}</p>
           <h2>{Data.contents[this.props.contentHandler].headline}</h2>
           <p>
           {reactStringReplace(Data.contents[this.props.contentHandler].content, /(https?:\/\/\S+)/g, (match, i) => (
-          <a className="workDetail__description--link" href={match}>{match}</a>
+          <a key={i} className="workDetail__description--link" href={match}>{match}</a>
           ))}
           </p>
 
@@ -97,14 +101,19 @@ class WorkDetail extends Component {
             <button
               className='workDetail__button workDetail__button--prev'
               onClick={() => {
-                this.props.prevDetail();
                 this.setState({ fadeOut: !this.state.fadeOut });
+                setTimeout(() => {
+                  this.props.prevDetail();
+                }, 200);
+                
               }}></button>
             <button
               className='workDetail__button workDetail__button--next'
               onClick={() => {
-                this.props.nextDetail();
                 this.setState({ fadeOut: !this.state.fadeOut });
+                setTimeout(() => {
+                  this.props.nextDetail();
+                }, 200);
               }}></button>
           </div>
         </div>

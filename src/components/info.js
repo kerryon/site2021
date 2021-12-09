@@ -23,7 +23,7 @@ class Info extends Component {
       <div>
         <div className='info'>
           <div className='info__text'>
-            <Typist avgTypingDelay={50} stdTypingDelay={30}>
+            <Typist avgTypingDelay={30} stdTypingDelay={30}>
               Hey. Ich bin Kerry – Web-, UI/UX-, und Motiondesigner mit einem
               Hauch Front-End aus Hannover. Schau dich gerne um.
               <Typist.Backspace count={20} delay={600} />
@@ -34,21 +34,23 @@ class Info extends Component {
               </span>
             </Typist>
           </div>
-          <button className='info__link' onClick={() => this.togglePopup()}>
-            <span className='info__link--impressum'>i</span> Impressum ↗
-          </button>
-          <a
-            href='https://github.com/kerryon'
-            className='info__link'
-            rel='noopener noreferrer'
-            target='_blank'>
-            <img
-              src={require('../img/GitHub-Mark-Light-120px.png').default}
-              alt=':('
-              style={{ height: '1.1rem' }}
-            />{' '}
-            GitHub ↗
-          </a>
+          <div className='info__link--wrapper'>
+            <button className='info__link' onClick={() => this.togglePopup()}>
+              <span className='info__link--impressum'>i</span> Impressum
+            </button>
+            <a
+              href='https://github.com/kerryon'
+              className='info__link'
+              rel='noopener noreferrer'
+              target='_blank'>
+              <img
+                src={require('../img/GitHub-Mark-Light-120px.png').default}
+                alt=':('
+                style={{ height: '1rem' }}
+              />{' '}
+              GitHub ↗
+            </a>
+          </div>
         </div>
         {showPopup && <Popup closePopup={this.togglePopup.bind(this)} />}
       </div>

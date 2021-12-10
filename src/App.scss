@@ -266,7 +266,7 @@ h1 {
     background-image: url(./img/nss.jpg);
   }
   &__4 {
-    background-image: url(./img/syn.jpg);
+    background-image: url(./img/syn_alt.jpg);
   }
 }
 
@@ -330,10 +330,12 @@ h1 {
     }
 
     &--wrapper {
-      position: absolute;
-      bottom: 0;
-      display: flex;
-      flex-direction: row;
+      @include md {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }

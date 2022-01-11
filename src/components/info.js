@@ -24,7 +24,7 @@ class Info extends Component {
         <div className='info'>
           <div className='info__text'>
             <Typist avgTypingDelay={30} stdTypingDelay={30}>
-              Hey. Ich bin Kerry – Web-, UI/UX-, und Motiondesigner mit einem
+              Hey. Ich bin Kerry – Web-, UX/UI-, und Motiondesigner mit einem
               Hauch Front-End aus Hannover. Schau dich gerne um.
               <Typist.Backspace count={20} delay={600} />
               <span

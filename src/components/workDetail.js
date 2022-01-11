@@ -36,7 +36,7 @@ class WorkDetail extends Component {
     const isTrue = props.isTrue;
     let contentHandler = props.contenHandler;
     if (isTrue) {
-      return <video src={require(`../img/case_${contentHandler}.mp4`).default} type="video/mp4" width="100%" height="auto" autoPlay loop muted playsinline></video>;
+      return <video src={require(`../img/case_${contentHandler}.mp4`).default} type="video/mp4" width="100%" height="auto" autoPlay loop muted playsInline></video>;
     } else {
       return null;
     }

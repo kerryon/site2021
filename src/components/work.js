@@ -76,8 +76,8 @@ class Work extends Component {
             options={{
               max: 20,
               easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
-              scale: 1.1,
-              perspective: 1500,
+              scale: 1.05,
+              perspective:3000,
               speed: 500,
             }}>
             <div className='Tilt-inner'>
@@ -97,8 +97,8 @@ class Work extends Component {
             options={{
               max: 20,
               easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
-              scale: 1.1,
-              perspective: 1500,
+              scale: 1.05,
+              perspective: 3000,
               speed: 500,
             }}>
             <div className='Tilt-inner'>
@@ -118,8 +118,8 @@ class Work extends Component {
             options={{
               max: 20,
               easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
-              scale: 1.1,
-              perspective: 1500,
+              scale: 1.05,
+              perspective: 3000,
               speed: 500,
             }}>
             <div className='Tilt-inner'>
@@ -139,8 +139,8 @@ class Work extends Component {
             options={{
               max: 20,
               easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
-              scale: 1.1,
-              perspective: 1500,
+              scale: 1.05,
+              perspective: 3000,
               speed: 500,
             }}>
             <div className='Tilt-inner'>

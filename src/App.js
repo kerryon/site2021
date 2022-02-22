@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import './App.scss';
-import { ReactP5Wrapper } from "react-p5-wrapper";
 import sketch from './sketches/sketch';
-import Work from './components/work';
-import About from './components/about';
-import Info from './components/info';
-// import Cursor from './components/cursor';
-import LottieAnim from './components/logo';
+const ReactP5Wrapper = lazy(() => import('react-p5-wrapper').then(module=>({default:module.ReactP5Wrapper})));
+const Work = lazy(() => import('./components/work'));
+const About = lazy(() => import('./components/about'));
+const Info = lazy(() => import('./components/info'));
+const LottieAnim = lazy(() => import('./components/logo'));
+// import { ReactP5Wrapper } from "react-p5-wrapper";
+// import Work from './components/work';
+// import About from './components/about';
+// import Info from './components/info';
+// import LottieAnim from './components/logo';
 
 class App extends React.Component {
   constructor() {
@@ -69,6 +73,7 @@ class App extends React.Component {
       case 'showHideInfo':
         this.setState({
           showHideInfo: !this.state.showHideInfo,
+          showHideBack: false,
           fadeOut: true,
         });
         setTimeout(() => {
@@ -92,9 +97,11 @@ class App extends React.Component {
     } = this.state;
     return (
       <div className='App'>
+      <Suspense fallback={<div>Lade...</div>}>
         <ReactP5Wrapper sketch={sketch} />
+      </Suspense>
 
-        {showHideInfo && <Info toggleComponent={this.toggleComponent} />}
+        {showHideInfo && <Suspense fallback={<div>Lade...</div>}><Info toggleComponent={this.toggleComponent} /></Suspense>}
 
         {showHideBack && (
           <div
@@ -108,32 +115,37 @@ class App extends React.Component {
             // style={{ opacity: showHideWork ? '0' : '1' }}
             >
             <button
-              className='btn'
+              className={`btn ${this.state.showHideWork ? 'btn--state' : ''}`}
               onClick={() => this.toggleComponent('showHideWork')}>
               {showHideWork ? 'keine Projekte' : 'Projekte'}
             </button>
             <button
-              className='btn'
+              className={`btn ${this.state.showHideWork ? 'btn--state' : ''}`}
               onClick={() => this.toggleComponent('showHideAbout')}>
-              {showHideAbout ? 'kein Kontakt' : 'Kontakt'}
+              {showHideAbout ? 'nee, doch nicht' : 'Kontakt'}
             </button>
           </div>
         )}
 
         {showHideWork && (
-          <Work
-            toggleComponent={this.toggleComponent}
-            fadeOut={this.state.fadeOut}
-          />
+          <Suspense fallback={<div>Lade...</div>}>
+            <Work
+              toggleComponent={this.toggleComponent}
+              fadeOut={this.state.fadeOut}
+            />
+          </Suspense>
         )}
         {showHideAbout && (
-          <About
-            toggleComponent={this.toggleComponent}
-            slideOut={this.state.slideOut}
-          />
+          <Suspense fallback={<div>Lade...</div>}>
+            <About
+              toggleComponent={this.toggleComponent}
+              slideOut={this.state.slideOut}
+            />
+          </Suspense>
         )}
-        <LottieAnim toggleComponent={this.toggleComponent} />
-        {/* <Cursor /> */}
+        <Suspense fallback={<div>Lade...</div>}>
+          <LottieAnim toggleComponent={this.toggleComponent} />
+        </Suspense>
       </div>
     );
   }

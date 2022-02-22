@@ -23,7 +23,7 @@ class Info extends Component {
       <div>
         <div className='info'>
           <div className='info__text'>
-            <Typist avgTypingDelay={30} stdTypingDelay={30}>
+            <Typist avgTypingDelay={20} stdTypingDelay={20}>
               Hey. Ich bin Kerry – Web-, UX/UI-, und Motiondesigner mit einem
               Hauch Front-End aus Hannover. Schau dich gerne um.
               <Typist.Backspace count={20} delay={600} />
@@ -44,7 +44,7 @@ class Info extends Component {
               rel='noopener noreferrer'
               target='_blank'>
               <img
-                src={require('../img/GitHub-Mark-Light-120px.png').default}
+                src={require('../img/GitHub-Mark-Light-120px.png')}
                 alt=':('
                 style={{ height: '1rem' }}
               />{' '}

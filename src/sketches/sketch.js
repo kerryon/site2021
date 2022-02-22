@@ -30,6 +30,7 @@ export default function sketch(p) {
   p.setup = function () {
     p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
     // p.smooth();
+    p.pixelDensity(0.9);
 
     for (let i = 0; i < 4; i++) {
       drops[i] = new Drop();

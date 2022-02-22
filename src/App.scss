@@ -255,6 +255,38 @@ h1 {
   z-index: 5;
 }
 
+@keyframes togglePlanetIn {
+  from {
+    opacity: 0;
+    transform: translate3D(0, 100vh, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@keyframes togglePlanetOut {
+  from {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3D(0, 100vh, 0);
+  }
+}
+
+.togglePlanet {
+  &__in {
+    animation: togglePlanetIn 0.5s ease-in;
+  }
+
+  &__out {
+    animation: togglePlanetOut 0.5s ease-in;
+  }
+}
+
 .preview {
   &__1 {
     background-image: url(./img/pbd.jpg);
@@ -365,7 +397,7 @@ h1 {
   position: relative;
   width: 100%;
   height: 300px;
-  margin: 30px 0;
+  margin: 20px 0;
   transform-origin: left center;
   pointer-events: auto;
 
@@ -436,13 +468,16 @@ h1 {
     position: relative;
     grid-column: none;
     grid-row: 1;
-    padding: 30px 30px;
+    padding: 20px 20px;
     background-color: $primaryColor;
     color: $secondaryColor;
     transform-origin: center right;
-    height: auto;
+    // height: auto;
+    min-height: 60vh;
     width: 100vw;
     box-shadow: inset 5px 0 10px rgba(26, 26, 26, 0.5);
+    display: flex;
+    flex-direction: column;
 
     @include md {
       grid-column: 3;
@@ -450,6 +485,26 @@ h1 {
       height: 100vh;
       padding: 40px 40px;
       width: auto;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(
+        180deg,
+        rgba(231, 231, 231, 0) 0%,
+        rgba(231, 231, 231, 1) 30%
+      );
+    }
+
+    &--textWrapper {
+      overflow-y: scroll;
+      margin-bottom: 20px;
+      // height: 500px;
     }
 
     &--link {
@@ -492,6 +547,7 @@ h1 {
     white-space: nowrap;
     outline: none;
     padding: 0;
+    flex-shrink: 0;
 
     &--back {
       position: relative;
@@ -506,8 +562,8 @@ h1 {
 
     &--wrapper {
       position: absolute;
-      width: calc(100% - 80px);
-      right: 40px;
+      width: calc(100% - 40px);
+      right: 20px;
       bottom: 40px;
       display: flex;
       justify-content: space-between;
@@ -690,6 +746,14 @@ h1 {
     color: $accentColor;
     position: absolute;
     right: -8px;
+  }
+
+  &--state {
+    opacity: 0;
+
+    @include md {
+      opacity: 1;
+    }
   }
 }
 

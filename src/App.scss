@@ -494,16 +494,33 @@ h1 {
       left: 0;
       right: 0;
       height: 120px;
-      background: linear-gradient(
-        180deg,
+      width: 100%;
+      background: -moz-linear-gradient(
+        top,
         rgba(231, 231, 231, 0) 0%,
-        rgba(231, 231, 231, 1) 30%
+        rgba(231, 231, 231, 1) 30%,
+        rgba(231, 231, 231, 1) 100%
+      ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+        top,
+        rgba(231, 231, 231, 0) 0%,
+        rgba(231, 231, 231, 1) 30%,
+        rgba(231, 231, 231, 1) 100%
+      ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(
+        to bottom,
+        rgba(231, 231, 231, 0) 0%,
+        rgba(231, 231, 231, 1) 30%,
+        rgba(231, 231, 231, 1) 100%
       );
+      z-index: 1;
     }
 
     &--textWrapper {
       overflow-y: scroll;
+      overflow-x: hidden;
       margin-bottom: 20px;
+      z-index: -1;
       // height: 500px;
     }
 
@@ -567,6 +584,7 @@ h1 {
       bottom: 40px;
       display: flex;
       justify-content: space-between;
+      z-index: 2;
 
       @include md {
         justify-content: flex-end;
